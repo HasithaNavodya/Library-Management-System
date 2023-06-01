@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.InventoryFormController">
+   <children>
+      <ImageView fitHeight="768.0" fitWidth="1366.0" layoutX="-1.0" layoutY="-16.0">
+         <image>
+            <Image url="@../img/17581851_v960-ning-31.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtId" layoutX="406.0" layoutY="177.0" onKeyTyped="#txtValiId" prefHeight="49.0" prefWidth="241.0" promptText="Item Id">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtQuantity" layoutX="406.0" layoutY="498.0" onKeyTyped="#txtValiQty" prefHeight="49.0" prefWidth="241.0" promptText="Quantity">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtName" layoutX="406.0" layoutY="284.0" onKeyTyped="#txtValiName" prefHeight="49.0" prefWidth="241.0" promptText="Item Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtCatagory" layoutX="406.0" layoutY="391.0" onKeyTyped="#txtValiCate" prefHeight="49.0" prefWidth="241.0" promptText="Category">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="tblInventory" layoutX="729.0" layoutY="167.0" onMouseClicked="#ItemOnMouseClick" prefHeight="494.0" prefWidth="534.0">
+         <columns>
+            <TableColumn fx:id="colId" prefWidth="144.0" text="ID" />
+            <TableColumn fx:id="colName" prefWidth="123.0" text="Name" />
+            <TableColumn fx:id="colCategory" prefWidth="138.0" text="Category" />
+            <TableColumn fx:id="colQuantity" prefWidth="128.0" text="Quantity" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnBack" layoutX="93.0" layoutY="68.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="23.0" prefWidth="85.0" style="-fx-background-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Back" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnAdd" alignment="CENTER" layoutX="103.0" layoutY="630.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="45.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" text="Add">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete" alignment="CENTER" layoutX="300.0" layoutY="630.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="45.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" text="Delete">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnUpdate" alignment="CENTER" layoutX="498.0" layoutY="630.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="45.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" text="Update">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="485.0" layoutY="34.0" prefHeight="50.0" prefWidth="488.0" text="INVENTORY MANAGEMENT">
+         <font>
+            <Font name="Candara Bold" size="41.0" />
+         </font>
+      </Label>
+      <Label layoutX="103.0" layoutY="405.0" text="Category :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="512.0" text="Quantity :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="98.0" layoutY="202.0" text="Item Id :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="96.0" layoutY="309.0" text="Item Name :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

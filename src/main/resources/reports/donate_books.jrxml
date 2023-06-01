@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.3.final using JasperReports Library version 6.20.3-415f9428cffdb6805c6f85bbb29ebaf18813a2ab  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="customer" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8319d465-cc4f-4f71-84c2-0677632b867f">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="Ym9ycm93X2Jvb2tzICwxNSwxNSwzZDEwYmE2Yy05ZDIxLTQwNTAtYTAwMS1iZjE4OTlmZGUyMDQ7"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="book shop"/>
+	<subDataset name="customer datastet" uuid="a1929546-c5b1-44af-9e51-6487bb08d475">
+		<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (2)"/>
+		<queryString language="SQL">
+			<![CDATA[select * from customer]]>
+		</queryString>
+		<field name="cust_id" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="cust_id"/>
+			<property name="com.jaspersoft.studio.field.label" value="cust_id"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+		</field>
+		<field name="cust_name" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="cust_name"/>
+			<property name="com.jaspersoft.studio.field.label" value="cust_name"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+		</field>
+		<field name="cust_email" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="cust_email"/>
+			<property name="com.jaspersoft.studio.field.label" value="cust_email"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+		</field>
+		<field name="cust_contact" class="java.lang.String">
+			<property name="com.jaspersoft.studio.field.name" value="cust_contact"/>
+			<property name="com.jaspersoft.studio.field.label" value="cust_contact"/>
+			<property name="com.jaspersoft.studio.field.tree.path" value="customer"/>
+		</field>
+		<group name="cust_id">
+			<groupExpression><![CDATA[$F{cust_id}]]></groupExpression>
+		</group>
+		<group name="cust_name">
+			<groupExpression><![CDATA[$F{cust_name}]]></groupExpression>
+		</group>
+		<group name="cust_email">
+			<groupExpression><![CDATA[$F{cust_email}]]></groupExpression>
+		</group>
+		<group name="cust_contact">
+			<groupExpression><![CDATA[$F{cust_contact}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM borrow_books
+LIMIT 1]]>
+	</queryString>
+	<field name="issue_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="issue_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="issue_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrow_books"/>
+	</field>
+	<field name="member_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="member_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="member_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrow_books"/>
+	</field>
+	<field name="book_id" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="book_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="book_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrow_books"/>
+	</field>
+	<field name="due_date" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="due_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="due_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrow_books"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="136" splitType="Stretch">
+			<staticText>
+				<reportElement x="4" y="25" width="546" height="30" uuid="5c79db69-8ad7-484b-9fe2-72aac4e88395"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="25"/>
+				</textElement>
+				<text><![CDATA[BOOK ISSUE DETAILS]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="227" y="90" width="100" height="30" uuid="c7e6de15-4675-4f4d-84e1-c4d8d34682d7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="227" y="100" width="100" height="30" uuid="4386dc81-33ca-4c0b-9800-d679c06d3cbe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="85" y="31" width="390" height="48" uuid="f639eb5c-b1a8-4a60-8394-53896bf01fc1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="18"/>
+				</textElement>
+				<text><![CDATA[DONATE BOOKS DETAILS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<staticText>
+				<reportElement x="53" y="5" width="80" height="30" uuid="99bca9df-6415-4017-b818-c98718d2c829"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ISSUE ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="169" y="5" width="80" height="30" uuid="13cbf65e-ff92-4854-b04b-6698596809e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MEMBER ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="285" y="5" width="80" height="30" uuid="2a62bce8-3ba3-4cd6-8f63-f76d7634505b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BOOK ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="5" width="80" height="30" uuid="1316e754-2113-41fd-b6d4-aced66a95cff"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DUE DATE]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="57" splitType="Stretch">
+			<line>
+				<reportElement x="10" y="56" width="534" height="1" forecolor="#949494" uuid="fc6b094d-77db-4e37-9a79-a95d282a7459"/>
+				<graphicElement>
+					<pen lineStyle="Dashed"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="53" y="10" width="80" height="30" uuid="4db33d95-033f-4017-95f7-43a95746cf7d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{issue_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="10" width="80" height="30" uuid="2f2d7f1e-ab25-4305-838b-cba656616791"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{member_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="10" width="80" height="30" uuid="d65c6529-5d54-45b4-b842-adb2242dc58b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{book_id}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMM d, yyyy">
+				<reportElement x="400" y="10" width="80" height="30" uuid="b1978aba-58d4-4194-a90d-b27d7d32594f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{due_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="50"/>
+	</lastPageFooter>
+	<summary>
+		<band height="91">
+			<staticText>
+				<reportElement x="85" y="31" width="390" height="48" uuid="d4e494f5-6130-4d75-8fcf-e65be433a3a2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="18"/>
+				</textElement>
+				<text><![CDATA[- A book is a gift you can open again and again -]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginPane" prefHeight="698.0" prefWidth="1224.0" style="-fx-background-color: #679493;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="707.0" fitWidth="1229.0" layoutY="1.0">
+         <image>
+            <Image url="@../img/homePage.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUsername" layoutX="449.0" layoutY="184.0" prefHeight="39.0" prefWidth="299.0" promptText="User Name" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <Button fx:id="btnLogin" layoutX="517.0" layoutY="354.0" mnemonicParsing="false" onAction="#btnLoginOnAction" onKeyPressed="#EnterOnPress" prefHeight="39.0" prefWidth="166.0" style="-fx-background-radius: 20; -fx-background-color: #60C1B9;" text="Login">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Button>
+      <Label layoutX="625.0" layoutY="395.0" textFill="#fff9f9">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtPassword" layoutX="450.0" layoutY="265.0" prefHeight="39.0" prefWidth="299.0" promptText="Password" style="-fx-background-radius: 20; -fx-border-color: black; -fx-border-radius: 20;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TextField>
+      <Hyperlink fx:id="SingUpClick" layoutX="656.0" layoutY="420.0" onAction="#SignUpClick" prefHeight="19.0" prefWidth="71.0" style="-fx-text-fill: #38b6f1;" text="Sign Up">
+         <font>
+            <Font name="Bodoni MT Black Italic" size="14.0" />
+         </font>
+      </Hyperlink>
+      <Label fx:id="donthaveaccount" layoutX="474.0" layoutY="422.0" prefHeight="21.0" prefWidth="184.0" styleClass="donthaveaccount" text="Don't have an account yet?" />
+      <Label layoutX="514.0" layoutY="96.0" prefHeight="39.0" prefWidth="184.0" text="Login Page">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="32.0" />
+         </font>
+      </Label>
+   </children>
+   <opaqueInsets>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </opaqueInsets>
+</AnchorPane>

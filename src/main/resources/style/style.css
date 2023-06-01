@@ -1,0 +1,54 @@
+
+.dashboard{
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 8, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 8, 0, 0, 0);
+    -fx-background-radius: 0 50 50 0 ;
+    -fx-background-color: linear-gradient(to top left  ,  #dfa47e,#7B3927,#541212,#0F0E0E);
+    /*-fx-background-color:#D2691E ;*/
+}
+.dashboardButton{
+
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 8, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 8, 0, 0, 0);
+    -fx-background-color: linear-gradient(to top right  , #541212, #FFFCFF,#541212);
+    -fx-background-radius : 50 50 50 50;
+
+}
+.adminHomePageButtonStyle{
+    -fx-background-radius : 10 10 10 10;
+    -fx-background-color: linear-gradient(to top right  ,  white,#FFFCFF);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8),8, 0, 0, 0);
+}
+.adminDashBordLeftSlide{
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 8, 0, 0, 0);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.8), 8, 0, 0, 0);
+    -fx-background-radius: 0 50 50 0 ;
+    /*-fx-background-color: linear-gradient(to top right  , #0F0E0E, #541212,#B5ADB4);*/
+    -fx-background-color: linear-gradient(to top right  , #639abf, #c6c0c0, #e2dfdf);
+
+}
+
+.EmloyeeButtonStyle{
+    -fx-background-radius: 15;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(10,10,10,0.6), 10, 0, 0, 10);
+}
+.EmloyeeButtonTabbleStyle{
+    -fx-background-radius: 15;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(10,10,10,0.6), 10, 0, 0, 10);
+}
+
+.ButtonStyle{
+    -fx-border-radius:  20;
+    -fx-background-radius: 15;
+    -fx-border-color: black;
+}
+
+.HomePageButtonStyle{
+    -fx-background-radius:  15;
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(10,10,10,0.6), 10, 0, 0, 10);
+}
+

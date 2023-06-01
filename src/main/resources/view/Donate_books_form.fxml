@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="800.0" style="-fx-background-color: #679493;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.DonateBooksController">
+   <children>
+      <ImageView fitHeight="768.0" fitWidth="1366.0">
+         <image>
+            <Image url="@../img/17581851_v960-ning-31.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnBack" layoutX="110.0" layoutY="68.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="23.0" prefWidth="85.0" style="-fx-background-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Back" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnAdd" alignment="CENTER" layoutX="1066.0" layoutY="646.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="45.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" text="Add">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="108.0" layoutY="151.0" text="Donation ID :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="227.0" text="ID Of Donator :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="108.0" layoutY="304.0" text="ID Of Book :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtBookID" layoutX="387.0" layoutY="293.0" prefHeight="49.0" prefWidth="241.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="108.0" layoutY="381.0" text="Name Of The Book :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtBookName" layoutX="387.0" layoutY="370.0" prefHeight="49.0" prefWidth="241.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="705.0" layoutY="152.0" text="Author :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtAuthor" layoutX="984.0" layoutY="141.0" prefHeight="49.0" prefWidth="241.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="705.0" layoutY="227.0" text="Category :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCategory" layoutX="984.0" layoutY="216.0" prefHeight="49.0" prefWidth="241.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="705.0" layoutY="302.0" text="Cupboard_No :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtCupboardNo" layoutX="984.0" layoutY="291.0" prefHeight="49.0" prefWidth="241.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="tblBookDonation" layoutX="109.0" layoutY="456.0" prefHeight="159.0" prefWidth="1116.0">
+        <columns>
+          <TableColumn fx:id="colBookId" prefWidth="92.0" text="ID Of Book" />
+          <TableColumn fx:id="colBookName" prefWidth="247.0" text="Name Of Book" />
+            <TableColumn fx:id="colBookAuthor" prefWidth="277.0" text="Author" />
+            <TableColumn fx:id="colBookCategory" prefWidth="256.0" text="Category" />
+            <TableColumn fx:id="colCupNo" prefWidth="127.0" text="Cupboard_No" />
+            <TableColumn fx:id="colAction" prefWidth="127.0" text="Action" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnAddToCart" alignment="CENTER" layoutX="1066.0" layoutY="381.0" mnemonicParsing="false" onAction="#btnAddToCartOnAction" prefHeight="45.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" text="Add To Cart">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="cmbDonatorId" layoutX="387.0" layoutY="216.0" prefHeight="49.0" prefWidth="241.0" />
+      <Label fx:id="lblDonationId" layoutX="387.0" layoutY="153.0" prefHeight="27.0" prefWidth="234.0">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="548.0" layoutY="26.0" prefHeight="50.0" prefWidth="436.0" text="DONATE BOOKS">
+         <font>
+            <Font name="Candara Bold" size="41.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

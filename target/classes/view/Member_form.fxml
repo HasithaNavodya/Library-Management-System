@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="root" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.MemberFormController">
+   <children>
+      <ImageView fitHeight="768.0" fitWidth="1366.0">
+         <image>
+            <Image url="@../img/17581851_v960-ning-31.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtId" layoutX="407.0" layoutY="163.0" onKeyTyped="#txtValiId" prefHeight="49.0" prefWidth="241.0" promptText="Member Id">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtName" layoutX="407.0" layoutY="245.0" onKeyTyped="#txtValiName" prefHeight="49.0" prefWidth="241.0" promptText="Member Name">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtAddress" layoutX="407.0" layoutY="327.0" onKeyTyped="#txtValiAddress" prefHeight="49.0" prefWidth="241.0" promptText="Member Address">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtGrade" layoutX="407.0" layoutY="408.0" onKeyTyped="#txtValiGrade" prefHeight="49.0" prefWidth="241.0" promptText="Member  Grade">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtFee" layoutX="407.0" layoutY="491.0" onKeyTyped="#txtValiFee" prefHeight="49.0" prefWidth="241.0" promptText="Member Fee">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtContact" layoutX="407.0" layoutY="573.0" onKeyTyped="#txtCnt" prefHeight="49.0" prefWidth="241.0" promptText="Member Contact">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
+      <TableView fx:id="tblMember" layoutX="704.0" layoutY="153.0" onMouseClicked="#tblClick" prefHeight="539.0" prefWidth="574.0">
+         <columns>
+            <TableColumn fx:id="colid" prefWidth="56.0" text="Id" />
+            <TableColumn fx:id="colName" prefWidth="153.0" text="Name" />
+            <TableColumn fx:id="colAddress" prefWidth="130.0" text="Address" />
+            <TableColumn fx:id="colGrade" prefWidth="77.0" text="Grade" />
+            <TableColumn fx:id="colFee" prefWidth="73.0" text="Fee" />
+            <TableColumn fx:id="colContact" prefWidth="84.0" text="Contact" />
+
+            <TableColumn fx:id="colAddress1" prefWidth="130.0" text="Address" />
+
+         </columns>
+      </TableView>
+      <Button fx:id="btnBack" layoutX="107.0" layoutY="68.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="23.0" prefWidth="85.0" style="-fx-background-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Back" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="btnAdd" alignment="CENTER" layoutX="106.0" layoutY="660.0" mnemonicParsing="false" onAction="#btnAddOnAction" prefHeight="45.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" text="Add">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnDelete" alignment="CENTER" layoutX="303.0" layoutY="660.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="45.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" text="Delete">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnUpdate" alignment="CENTER" layoutX="501.0" layoutY="660.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="45.0" prefWidth="159.0" style="-fx-background-radius: 20; -fx-border-radius: 20;" text="Update">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="107.0" layoutY="341.0" text="Memer Address :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="105.0" layoutY="422.0" text="Member Grade :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="177.0" text="Member Id :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="259.0" text="Member Name :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="505.0" text="Member Fee :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="107.0" layoutY="587.0" text="Member Contact :">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="473.0" layoutY="28.0" prefHeight="50.0" prefWidth="462.0" text="MEMBER MANAGEMENT">
+         <font>
+            <Font name="Candara Bold" size="41.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
