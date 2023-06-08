@@ -12,16 +12,23 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.finalProject.dto.Salary;
-import lk.ijse.finalProject.dto.tm.BookTM;
-import lk.ijse.finalProject.dto.tm.SalaryTM;
+import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.impl.SalaryBOImpl;
+import lk.ijse.finalProject.dao.custom.SalaryDAO;
+import lk.ijse.finalProject.dao.custom.impl.SalaryDAOImpl;
+import lk.ijse.finalProject.dto.BookDTO;
+import lk.ijse.finalProject.dto.SalaryDTO;
+import lk.ijse.finalProject.entity.Salary;
 import lk.ijse.finalProject.model.SalaryModel;
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
+import lk.ijse.finalProject.view.tdm.BookTM;
+import lk.ijse.finalProject.view.tdm.SalaryTM;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class SalaryFormController implements Initializable {
@@ -68,6 +75,44 @@ public class SalaryFormController implements Initializable {
     @FXML
     private TextField txtId;
 
+    SalaryBOImpl salaryBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.SALARY_BO);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        getAll();
+        setCellValueFactory();
+        generateNextSalaryId();
+    }
+
+    private void getAll(){
+        tblSalary.getItems().clear();
+        try {
+            ArrayList<SalaryDTO> allSalary = salaryBO.getAllSalary();
+            for (SalaryDTO s : allSalary) {
+                tblSalary.getItems().add(new SalaryTM(s.getSalary_id(), s.getBonus(), s.getDate(), s.getAmount()));
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    public void generateNextSalaryId(){
+        try {
+            String id = salaryBO.getNextSalaryId();
+            txtId.setText(id);
+        } catch (Exception e) {
+            System.out.println(e);
+            new Alert(Alert.AlertType.ERROR, "Exception!").show();
+        }
+    }
+
+    private void setCellValueFactory() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("salary_id"));
+        colBonus.setCellValueFactory(new PropertyValueFactory<>("bonus"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
         try {
@@ -79,9 +124,10 @@ public class SalaryFormController implements Initializable {
             if (sal_id.isEmpty() || txtBonus.getText().isEmpty() || date.isEmpty() || txtAmount.getText().isEmpty()) {
                 AlertController.errormessage("Salary details not saved.\nPlease make sure to fill all the required fields ");
             } else {
-                Salary salary = new Salary(sal_id, bonus, date, amount);
 
-                boolean isAdded = SalaryModel.save(salary);
+                SalaryDTO salaryDTO = new SalaryDTO(sal_id, bonus, date, amount);
+
+                boolean isAdded = salaryBO.saveSalary(salaryDTO);
                 if (isAdded) {
                     AlertController.confirmmessage("Salary Details Added Successfully");
                     txtId.setText("");
@@ -133,7 +179,7 @@ public class SalaryFormController implements Initializable {
         if(result==true) {
 
             try {
-                boolean isDeleted = SalaryModel.delete(salary_id);
+                boolean isDeleted = salaryBO.deleteSalary(salary_id);
                 if (isDeleted) {
                     AlertController.confirmmessage("Salary Details Removed Successfully");
                     txtId.setText("");
@@ -170,9 +216,9 @@ public class SalaryFormController implements Initializable {
                 if(sal_id.isEmpty() || txtBonus.getText().isEmpty() || date.isEmpty() || txtAmount.getText().isEmpty()) {
                     AlertController.errormessage("Salary details not saved.\nPlease make sure to fill all the required fields ");
                 }else{
-                    Salary salary = new Salary(sal_id, bonus, date, amount);
+                    SalaryDTO salaryDTO = new SalaryDTO(sal_id, bonus, date, amount);
 
-                    boolean isUpdated = SalaryModel.update(salary);
+                    boolean isUpdated = salaryBO.updateSalary(salaryDTO);
                     if (isUpdated) {
                         AlertController.confirmmessage("Salary Details Updated");
                         txtId.setText("");
@@ -202,28 +248,9 @@ public class SalaryFormController implements Initializable {
         }
     }
 
-    private void getAll(){
-        ObservableList<SalaryTM> obList = null;
-        try {
-            obList = SalaryModel.getAll();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        tblSalary.setItems(obList);
-    }
 
-    private void setCellValueFactory() {
-        colId.setCellValueFactory(new PropertyValueFactory<>("salary_id"));
-        colBonus.setCellValueFactory(new PropertyValueFactory<>("bonus"));
-        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-    }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        getAll();
-        setCellValueFactory();
-    }
+
 
     public void tblSalaryOnMouseClicked(MouseEvent mouseEvent) {
         TablePosition pos = tblSalary.getSelectionModel().getSelectedCells().get(0);

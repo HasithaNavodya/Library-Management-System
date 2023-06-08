@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loginAncPane" prefHeight="505.0" prefWidth="679.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalProject.controller.SignUpController">
+   <children>
+      <ImageView fitHeight="730.0" fitWidth="1229.0" layoutX="3.0">
+         <image>
+            <Image url="@../img/homePage.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="userNameTxt" layoutX="488.0" layoutY="186.0" prefHeight="25.0" prefWidth="216.0" promptText="Username" styleClass="ButtonStyle" stylesheets="@../style/style.css">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="PassWordText" layoutX="488.0" layoutY="270.0" prefHeight="25.0" prefWidth="216.0" promptText="Password" styleClass="ButtonStyle" stylesheets="@../style/style.css">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ComPassWordText" layoutX="488.0" layoutY="314.0" prefHeight="25.0" prefWidth="216.0" promptText="Confirm Password" styleClass="ButtonStyle" stylesheets="@../style/style.css">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="EmailText" layoutX="488.0" layoutY="229.0" prefHeight="25.0" prefWidth="216.0" promptText="Email" styleClass="ButtonStyle" stylesheets="@../style/style.css">
+         <font>
+            <Font name="Arial Black" size="13.0" />
+         </font>
+      </TextField>
+      <JFXButton fx:id="btn2" buttonType="RAISED" layoutX="556.0" layoutY="376.0" onAction="#SignUpClick" prefHeight="31.0" prefWidth="81.0" style="-fx-background-color: #00c1f3; -fx-background-radius: 12px; -fx-font-weight: bold; -fx-prompt-text: black; -fx-prompt-text: bold;" text="Sign Up" />
+      <Label layoutX="507.0" layoutY="97.0" prefHeight="39.0" prefWidth="184.0" text="SignUp Page">
+         <font>
+            <Font name="Berlin Sans FB Demi Bold" size="32.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="44.0" fitWidth="57.0" layoutX="1173.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/icons8-back-arrow-50.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="1173.0" layoutY="19.0" onAction="#buttonOnAction" opacity="0.0" prefHeight="40.0" prefWidth="44.0" style="-fx-border-width: 1px 1px 1px 1px; -fx-border-color: white;" textFill="#f5f5f5" />
+   </children>
+</AnchorPane>

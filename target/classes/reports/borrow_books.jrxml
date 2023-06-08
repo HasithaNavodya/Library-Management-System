@@ -45,7 +45,7 @@
 	<queryString language="SQL">
 		<![CDATA[SELECT *
 FROM borrow_books
-LIMIT 1]]>
+h]]>
 	</queryString>
 	<field name="issue_id" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="issue_id"/>

@@ -41,7 +41,7 @@ public class HomePageFormController {
     }
 
     public void BookButtonOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/Book_Management_form.fxml"));
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/Book_form.fxml"));
 
         Scene scene = new Scene(anchorPane);
 

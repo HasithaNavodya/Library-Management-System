@@ -1,8 +1,8 @@
 package lk.ijse.finalProject.model;
 
 import lk.ijse.finalProject.db.DBConnection;
-import lk.ijse.finalProject.dto.User;
-import lk.ijse.finalProject.util.CrudUtil;
+import lk.ijse.finalProject.dto.UserDTO;
+import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +11,7 @@ import java.sql.SQLException;
 public class UserModel {
 
 
-    public static boolean SingUp(User user) throws SQLException {
+    public static boolean SingUp(UserDTO user) throws SQLException {
         String sql = "INSERT INTO user(userName,password,email)" +
                 "VALUES (?,?,?)";
 
@@ -28,8 +28,8 @@ public class UserModel {
 
     }
 
-    public static boolean LogingAction(User logingCont) throws SQLException {
-        ResultSet execute = CrudUtil.execute("SELECT * From user WHERE userName=? AND password =?", logingCont.getUserName(), logingCont.getPassword());
+    public static boolean LoginAction(UserDTO logingCont) throws SQLException {
+        ResultSet execute = SQLUtil.execute("SELECT * From user WHERE userName=? AND password =?", logingCont.getUserName(), logingCont.getPassword());
         if (execute.next()) {
             return true;
         } else {

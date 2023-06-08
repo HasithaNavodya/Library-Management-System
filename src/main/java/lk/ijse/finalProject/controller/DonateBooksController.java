@@ -12,9 +12,11 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.impl.DonateBooksBOImpl;
 import lk.ijse.finalProject.db.DBConnection;
-import lk.ijse.finalProject.dto.DonateBooks;
-import lk.ijse.finalProject.dto.tm.DonateBookCartTM;
+import lk.ijse.finalProject.dto.DonateBooksDTO;
+import lk.ijse.finalProject.view.tdm.DonateBookCartTM;
 import lk.ijse.finalProject.model.BookModel;
 import lk.ijse.finalProject.model.DonateBooksModel;
 import lk.ijse.finalProject.model.DonatorModel;
@@ -88,20 +90,29 @@ public class DonateBooksController implements Initializable {
     @FXML
     private TextField txtCupboardNo;
 
-    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/HomePage_form.fxml"));
+    DonateBooksBOImpl donateBooksBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.DONATE_BOOKS_BO);
 
-        Scene scene = new Scene(anchorPane);
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setCellValueFactory();
 
-        Stage stage = (Stage)root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Home");
-        stage.centerOnScreen();
+        generateNextDonationId();
+        loadDonatorIDs();
+        generateNextBookId();
+    }
+
+    private void setCellValueFactory() {
+        colBookId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colBookName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colBookAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
+        colBookCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        colCupNo.setCellValueFactory(new PropertyValueFactory<>("cup_no"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("removeBtn"));
     }
 
     public void generateNextDonationId(){
         try {
-            String id = DonateBooksModel.getNextDonationId();
+            String id = donateBooksBO.getNextDonationId();
             lblDonationId.setText(id);
         } catch (Exception e) {
             System.out.println(e);
@@ -111,7 +122,7 @@ public class DonateBooksController implements Initializable {
 
     public void generateNextBookId(){
         try {
-            String id = BookModel.getNextBookId();
+            String id = donateBooksBO.getNextBookId();
             txtBookID.setText(id);
         } catch (Exception e) {
             System.out.println(e);
@@ -119,20 +130,7 @@ public class DonateBooksController implements Initializable {
         }
     }
 
-    public void loadDonatorIDs(){
-        try {
-            ObservableList<String> obList = FXCollections.observableArrayList();
-            List<String> ids = DonatorModel.loadDonatorIds();
 
-            for (String id : ids) {
-                obList.add(id);
-            }
-            cmbDonatorId.setItems(obList);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
-        }
-    }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
         String donation_Id = lblDonationId.getText();
@@ -141,24 +139,25 @@ public class DonateBooksController implements Initializable {
         if (obList.isEmpty()) {
             AlertController.errormessage("Please make sure to add related details to the cart first");
         } else {
-            List<DonateBooks> donateBooksList = new ArrayList<>();
+            List<DonateBooksDTO> donateBooksList = new ArrayList<>();
 
             for (int i = 0; i < tblBookDonation.getItems().size(); i++) {
                 DonateBookCartTM donateBookCartTM = obList.get(i);
 
-                DonateBooks placeOrder = new DonateBooks(
+                DonateBooksDTO placeOrder = new DonateBooksDTO(
                         donateBookCartTM.getId(),
                         donateBookCartTM.getName(),
                         donateBookCartTM.getAuthor(),
                         donateBookCartTM.getCategory(),
-                        String.valueOf(donateBookCartTM.getCup_no())
+                        donateBookCartTM.getCup_no()
                 );
                 donateBooksList.add(placeOrder);
             }
 
             boolean isPlaced = false;
             try {
-                isPlaced = DonateBooksModel.placeDonation(donation_Id,donator_Id, donateBooksList);
+                DonateBooksDTO donateBooksDTO = new DonateBooksDTO(donation_Id,donator_Id, donateBooksList);
+                isPlaced = donateBooksBO.placeDonation(donateBooksDTO);
                 if (isPlaced) {
                     AlertController.confirmmessage("Donation Placed");
 
@@ -196,6 +195,7 @@ public class DonateBooksController implements Initializable {
     }
 
     private ObservableList<DonateBookCartTM> obList = FXCollections.observableArrayList();
+
     public void btnAddToCartOnAction(ActionEvent actionEvent) {
 
         if (cmbDonatorId.getValue()==null || txtBookID.getText().isEmpty() || txtBookName.getText().isEmpty() || txtAuthor.getText().isEmpty() || txtCategory.getText().isEmpty() || String.valueOf(txtCupboardNo.getText()).isEmpty()) {
@@ -229,6 +229,17 @@ public class DonateBooksController implements Initializable {
         }
     }
 
+    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/HomePage_form.fxml"));
+
+        Scene scene = new Scene(anchorPane);
+
+        Stage stage = (Stage)root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Home");
+        stage.centerOnScreen();
+    }
+
     private void setRemoveBtnOnAction(Button btn) {
         btn.setOnAction((e) -> {
             ButtonType yes = new ButtonType("Yes", ButtonBar.ButtonData.OK_DONE);
@@ -247,21 +258,20 @@ public class DonateBooksController implements Initializable {
         });
     }
 
-    private void setCellValueFactory() {
-        colBookId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        colBookName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colBookAuthor.setCellValueFactory(new PropertyValueFactory<>("author"));
-        colBookCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
-        colCupNo.setCellValueFactory(new PropertyValueFactory<>("cup_no"));
-        colAction.setCellValueFactory(new PropertyValueFactory<>("removeBtn"));
+    public void loadDonatorIDs(){
+        try {
+            ObservableList<String> obList = FXCollections.observableArrayList();
+            List<String> ids = donateBooksBO.loadDonatorIds();
+
+            for (String id : ids) {
+                obList.add(id);
+            }
+            cmbDonatorId.setItems(obList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
+        }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        setCellValueFactory();
 
-        generateNextDonationId();
-        loadDonatorIDs();
-        generateNextBookId();
-    }
 }

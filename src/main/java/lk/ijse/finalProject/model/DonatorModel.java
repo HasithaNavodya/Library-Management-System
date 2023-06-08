@@ -2,9 +2,10 @@ package lk.ijse.finalProject.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import lk.ijse.finalProject.dto.Donator;
-import lk.ijse.finalProject.dto.tm.DonatorTM;
-import lk.ijse.finalProject.util.CrudUtil;
+import lk.ijse.finalProject.dto.DonatorDTO;
+import lk.ijse.finalProject.view.tdm.DonatorTM;
+
+import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,15 +14,37 @@ import java.util.List;
 
 public class DonatorModel {
 
-    public static boolean Save(Donator donator) throws SQLException {
+    public static ObservableList<DonatorTM> getAll() throws SQLException {
 
-        String sql= "INSERT INTO donators(donater_id,name,contact,date)" +
+        String sql = "SELECT * FROM donators";
+
+        ObservableList<DonatorTM> obList = FXCollections.observableArrayList();
+
+        ResultSet resultSet = SQLUtil.execute(sql);
+
+        while (resultSet.next()){
+
+            obList.add(new DonatorTM(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                    resultSet.getString(3),
+                    resultSet.getString(4),
+                    resultSet.getString(5)
+            ));
+
+        }
+        return obList;
+    }
+
+    public static boolean save(DonatorDTO donator) throws SQLException {
+
+        String sql= "INSERT INTO donators(donator_id,name,contact,date)" +
                 "VALUES (?,?,?,?)";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
                 donator.getDonator_id(),
-                donator.getDonator_name(),
+                donator.getName(),
                 donator.getContact(),
                 donator.getDate()
         );
@@ -29,8 +52,8 @@ public class DonatorModel {
     }
 
     public static List<String> loadDonatorIds() throws SQLException {
-        String sql = "SELECT donater_id FROM donators";
-        ResultSet resultSet = CrudUtil.execute(sql);
+        String sql = "SELECT donator_id FROM donators";
+        ResultSet resultSet = SQLUtil.execute(sql);
 
         List<String> data = new ArrayList<>();
 
@@ -41,24 +64,24 @@ public class DonatorModel {
     }
 
     public static boolean delete(String donater_id) throws SQLException {
-        String sql="DELETE FROM donators WHERE donater_id=?";
+        String sql="DELETE FROM donators WHERE donator_id=?";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
                 donater_id
         );
 
     }
 
-    public static boolean update(Donator donator) throws SQLException {
-        String sql="UPDATE donators SET donater_id=?," +
+    public static boolean update(DonatorDTO donator) throws SQLException {
+        String sql="UPDATE donators SET donator_id=?," +
                 "name=?,contact=?,date=?";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
 
                 sql,
                 donator.getDonator_id(),
-                donator.getDonator_name(),
+                donator.getName(),
                 donator.getContact(),
                 donator.getDate()
 
@@ -66,25 +89,6 @@ public class DonatorModel {
 
     }
 
-    public static ObservableList<DonatorTM> getAll() throws SQLException {
 
-        String sql = "SELECT * FROM donators";
-
-        ObservableList<DonatorTM> obList = FXCollections.observableArrayList();
-
-        ResultSet resultSet = CrudUtil.execute(sql);
-
-        while (resultSet.next()){
-
-            obList.add(new DonatorTM(
-                    resultSet.getString(1),
-                    resultSet.getString(2),
-                    resultSet.getString(3),
-                    resultSet.getString(4)
-            ));
-
-        }
-        return obList;
-    }
 
 }

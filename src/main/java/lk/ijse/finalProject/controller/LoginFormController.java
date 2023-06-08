@@ -14,7 +14,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.finalProject.dto.User;
+import lk.ijse.finalProject.dto.UserDTO;
 import lk.ijse.finalProject.model.UserModel;
 import lk.ijse.finalProject.util.AlertController;
 
@@ -48,7 +48,7 @@ public class LoginFormController {
     private Scene scene;
     private Parent root;
 
-    User user =new User();
+    UserDTO userDTO = new UserDTO();
     int count;
 
     public void initialize() {
@@ -81,8 +81,8 @@ public class LoginFormController {
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
 
 
-        user.setUserName(txtUsername.getText());
-        user.setPassword(txtPassword.getText());
+        userDTO.setUserName(txtUsername.getText());
+        userDTO.setPassword(txtPassword.getText());
 
         try {
 
@@ -93,7 +93,7 @@ public class LoginFormController {
             }
             else{
 
-                    if (UserModel.LogingAction(user)){
+                    if (UserModel.LoginAction(userDTO)){
                        // new Alert(Alert.AlertType.CONFIRMATION,"Loging Sucssesful").show();
                         boolean result = AlertController.notificationBar("LIBRARY MANAGEMENT ","Login Successful");
 
@@ -114,7 +114,7 @@ public class LoginFormController {
                         }
                     }
 
-                if (!UserModel.LogingAction(user)){
+                if (!UserModel.LoginAction(userDTO)){
                     new Alert(Alert.AlertType.ERROR,"invalid  login details").show();
 
 

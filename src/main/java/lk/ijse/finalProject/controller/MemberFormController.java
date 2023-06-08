@@ -12,14 +12,15 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.finalProject.dto.Member;
-import lk.ijse.finalProject.dto.tm.MemberTM;
-import lk.ijse.finalProject.model.MemberModel;
+import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.impl.MemberBOImpl;
+import lk.ijse.finalProject.dto.MemberDTO;
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
-
+import lk.ijse.finalProject.view.tdm.MemberTM;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MemberFormController implements Initializable {
@@ -78,52 +79,63 @@ public class MemberFormController implements Initializable {
     @FXML
     private TextField txtName;
 
-    @FXML
-    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/HomePage_form.fxml"));
+    MemberBOImpl memberBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.MEMBER_BO);
 
-        Scene scene = new Scene(anchorPane);
-
-        Stage stage = (Stage)root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Home");
-        stage.centerOnScreen();
-
+    public void initialize(java.net.URL url, ResourceBundle resourceBundle) {
+        ClearAll();
+        setCellValueFactory();
+        getAll();
+        generateNextMemberId();
     }
 
-    @FXML
-    public void btnDeleteOnAction(ActionEvent actionEvent) {
-        String  id = txtId.getText();
 
+
+    private void getAll()  {
+        tblMember.getItems().clear();
         try {
-            boolean isDelete = MemberModel.delete(id);
-            if(isDelete){
-                AlertController.confirmmessage("Member Is DELETED!");
-                getAll();
-                ClearAll();
-
-                btnAdd.setDisable(true);
-                btnUpdate.setDisable(true);
-                btnDelete.setDisable(true);
+            ArrayList<MemberDTO> allMember = memberBO.getAllMember();
+            for (MemberDTO m : allMember) {
+                tblMember.getItems().add(new MemberTM(m.getMember_id(), m.getName(), m.getAddress(), m.getGrade(), m.getMember_fee(), m.getContact_no()));
             }
-        } catch (SQLException throwables) {
-            AlertController.errormessage("Something Wemt Wrong");
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
         }
-
     }
+
+    public void generateNextMemberId(){
+        try {
+            String id = memberBO.getNextMemberId();
+            txtId.setText(id);
+        } catch (Exception e) {
+            System.out.println(e);
+            new Alert(Alert.AlertType.ERROR, "Exception!").show();
+        }
+    }
+
+    private void setCellValueFactory() {
+        colid.setCellValueFactory(new PropertyValueFactory<>("member_id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+
+        colGrade.setCellValueFactory(new PropertyValueFactory<>("grade"));
+        colFee.setCellValueFactory(new PropertyValueFactory<>("member_fee"));
+        colContact.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
+    }
+
+
 
     @FXML
     public void btnAddOnAction(ActionEvent actionEvent) {
-   String id = txtId.getText();
-   String name = txtName.getText();
-   String address = txtAddress.getText();
-   String grade = txtGrade.getText();
+        String id = txtId.getText();
+        String name = txtName.getText();
+        String address = txtAddress.getText();
+        String grade = txtGrade.getText();
         double fee = Double.parseDouble(txtFee.getText());
-   String contact = txtContact.getText();
+        String contact = txtContact.getText();
 
-        Member member = new Member(id,name,address,grade,fee,contact);
+        MemberDTO memberDTO = new MemberDTO(id,name,address,grade,fee,contact);
         try {
-            boolean isSaved = MemberModel.add(member);
+            boolean isSaved = memberBO.saveMember(memberDTO);
             if(isSaved){
                 AlertController.confirmmessage("Member Is Saved!");
                 getAll();
@@ -142,9 +154,30 @@ public class MemberFormController implements Initializable {
             }
         } catch (SQLException throwables) {
             AlertController.errormessage("Something Wemt Wrong");
+            System.out.println(throwables);
         }
     }
 
+    @FXML
+    public void btnDeleteOnAction(ActionEvent actionEvent) {
+        String  id = txtId.getText();
+
+        try {
+            boolean isDelete = memberBO.deleteMember(id);
+            if(isDelete){
+                AlertController.confirmmessage("Member Is DELETED!");
+                getAll();
+                ClearAll();
+
+                btnAdd.setDisable(true);
+                btnUpdate.setDisable(true);
+                btnDelete.setDisable(true);
+            }
+        } catch (SQLException throwables) {
+            AlertController.errormessage("Something Wemt Wrong");
+        }
+
+    }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         String id = txtId.getText();
@@ -154,9 +187,9 @@ public class MemberFormController implements Initializable {
         double fee = Double.parseDouble(txtFee.getText());
         String contact = txtContact.getText();
 
-        Member member = new Member(id,name,address,grade,fee,contact);
+        MemberDTO memberDTO = new MemberDTO(id,name,address,grade,fee,contact);
         try {
-            boolean isUpdate = MemberModel.update(member);
+            boolean isUpdate = memberBO.updateMember(memberDTO);
             if(isUpdate){
                 AlertController.confirmmessage("MemberDetails Is Updates!");
                 getAll();
@@ -178,46 +211,6 @@ public class MemberFormController implements Initializable {
         }
     }
 
-
-    public void initialize(java.net.URL url, ResourceBundle resourceBundle) {
-        ClearAll();
-        setCellValueFactory();
-        getAll();
-    }
-
-    private void getAll() {
-        try {
-            ObservableList<MemberTM> obList = MemberModel.getAll();
-            tblMember.setItems(obList);
-        } catch (SQLException e) {
-
-        }
-    }
-
-    private void setCellValueFactory() {
-        colid.setCellValueFactory(new PropertyValueFactory<>("member_id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-
-        colGrade.setCellValueFactory(new PropertyValueFactory<>("grade"));
-        colFee.setCellValueFactory(new PropertyValueFactory<>("fee"));
-        colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
-    }
-
-
-    public void tblClick(MouseEvent mouseEvent) {
-        MemberTM tm = (MemberTM) tblMember.getSelectionModel().getSelectedItem();
-        txtId.setText(tm.getMember_id());
-        txtName.setText(tm.getName());
-        txtAddress.setText(tm.getAddress());
-        txtContact.setText(tm.getContact());
-        txtGrade.setText(tm.getGrade());
-        txtFee.setText(String.valueOf(tm.getFee()));
-
-        btnDelete.setDisable(false);
-    }
-
-
     public  void ClearAll(){
         txtId.setText(null);
         txtName.setText(null);
@@ -225,6 +218,28 @@ public class MemberFormController implements Initializable {
         txtGrade.setText(null);
         txtFee.setText(null);
         txtContact.setText(null);
+    }
+
+    @FXML
+    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/HomePage_form.fxml"));
+        Scene scene = new Scene(anchorPane);
+        Stage stage = (Stage)root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Home");
+        stage.centerOnScreen();
+    }
+
+    public void tblClick(MouseEvent mouseEvent) {
+        MemberTM tm = (MemberTM) tblMember.getSelectionModel().getSelectedItem();
+        txtId.setText(tm.getMember_id());
+        txtName.setText(tm.getName());
+        txtAddress.setText(tm.getAddress());
+        txtContact.setText(tm.getContact_no());
+        txtGrade.setText(tm.getGrade());
+        txtFee.setText(String.valueOf(tm.getMember_fee()));
+
+        btnDelete.setDisable(false);
     }
 
     public void txtValiId(KeyEvent keyEvent) {

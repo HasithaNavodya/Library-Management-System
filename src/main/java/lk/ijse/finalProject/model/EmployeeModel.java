@@ -2,39 +2,39 @@ package lk.ijse.finalProject.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import lk.ijse.finalProject.dto.Employee;
-import lk.ijse.finalProject.dto.tm.EmployeeTM;
-import lk.ijse.finalProject.util.CrudUtil;
+import lk.ijse.finalProject.dto.EmployeeDTO;
+import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
+import lk.ijse.finalProject.view.tdm.EmployeeTM;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class EmployeeModel {
 
-    public static boolean save(Employee employee) throws SQLException {
-        String sql = "INSERT INTO employee(employee_id,emplyee_name,status,address,contact_no) " +
+    public static boolean save(EmployeeDTO employee) throws SQLException {
+        String sql = "INSERT INTO employee(employee_id,employee_name,status,address,contact_no) " +
                 "VALUES(?,?,?,?,?)";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
                 employee.getEmployee_id(),
-                employee.getEmplyee_name(),
+                employee.getEmployee_name(),
                 employee.getStatus(),
                 employee.getAddress(),
-                employee.getContact()
+                employee.getContact_no()
         );
     }
 
 
-    public static boolean update(Employee employee) throws SQLException {
-        String sql = "UPDATE employee SET emplyee_name=?,status=?,address=?,contact_no=? WHERE employee_id=?";
+    public static boolean update(EmployeeDTO employee) throws SQLException {
+        String sql = "UPDATE employee SET employee_name=?,status=?,address=?,contact_no=? WHERE employee_id=?";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
-                employee.getEmplyee_name(),
+                employee.getEmployee_name(),
                 employee.getStatus(),
                 employee.getAddress(),
-                employee.getContact(),
+                employee.getContact_no(),
                 employee.getEmployee_id()
         );
     }
@@ -44,7 +44,7 @@ public class EmployeeModel {
 
         ObservableList<EmployeeTM> obList = FXCollections.observableArrayList();
 
-        ResultSet resultSet = CrudUtil.execute(sql);
+        ResultSet resultSet = SQLUtil.execute(sql);
         while (resultSet.next()) {
             obList.add(new EmployeeTM(
                     resultSet.getString(1),
@@ -64,7 +64,7 @@ public class EmployeeModel {
 //
 //            return pstm.executeUpdate() > 0;
 //        }
-        return CrudUtil.execute(sql,emp_id);
+        return SQLUtil.execute(sql,emp_id);
     }
 }
 

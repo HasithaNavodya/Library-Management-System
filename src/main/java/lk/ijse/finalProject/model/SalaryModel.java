@@ -2,21 +2,20 @@ package lk.ijse.finalProject.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import lk.ijse.finalProject.dto.Salary;
-import lk.ijse.finalProject.dto.tm.BookTM;
-import lk.ijse.finalProject.dto.tm.SalaryTM;
-import lk.ijse.finalProject.util.CrudUtil;
+import lk.ijse.finalProject.dto.SalaryDTO;
+import lk.ijse.finalProject.view.tdm.SalaryTM;
+import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class SalaryModel {
 
-    public static boolean save(Salary salary) throws SQLException {
+    public static boolean save(SalaryDTO salary) throws SQLException {
         String sql = "INSERT INTO salary(salary_id,bonus,date,amount) " +
                 "VALUES(?,?,?,?)";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
                 salary.getSalary_id(),
                 salary.getBonus(),
@@ -32,13 +31,13 @@ public class SalaryModel {
 //
 //            return pstm.executeUpdate() > 0;
 //        }
-        return CrudUtil.execute(sql,salary_id);
+        return SQLUtil.execute(sql,salary_id);
     }
 
-    public static boolean update(Salary salary) throws SQLException {
+    public static boolean update(SalaryDTO salary) throws SQLException {
         String sql = "UPDATE salary SET bonus=?,date=?,amount=? WHERE salary_id=?";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
                 salary.getBonus(),
                 salary.getDate(),
@@ -53,7 +52,7 @@ public class SalaryModel {
 
         ObservableList<SalaryTM> obList = FXCollections.observableArrayList();
 
-        ResultSet resultSet = CrudUtil.execute(sql);
+        ResultSet resultSet = SQLUtil.execute(sql);
         while (resultSet.next()) {
             obList.add(new SalaryTM(
                     resultSet.getString(1),

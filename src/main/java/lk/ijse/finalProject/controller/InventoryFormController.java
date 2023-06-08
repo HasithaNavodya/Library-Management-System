@@ -12,19 +12,21 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.finalProject.dto.Donator;
-import lk.ijse.finalProject.dto.Inventory;
-import lk.ijse.finalProject.dto.tm.DonatorTM;
-import lk.ijse.finalProject.dto.tm.InventoryTM;
-import lk.ijse.finalProject.model.DonatorModel;
+
+import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.impl.InventoryBOImpl;
+import lk.ijse.finalProject.dto.FineDTO;
+import lk.ijse.finalProject.dto.InventoryDTO;
+import lk.ijse.finalProject.view.tdm.FineTM;
+import lk.ijse.finalProject.view.tdm.InventoryTM;
 import lk.ijse.finalProject.model.InventoryModel;
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
-import lombok.SneakyThrows;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class InventoryFormController implements Initializable {
@@ -71,21 +73,64 @@ public class InventoryFormController implements Initializable {
     @FXML
     private TextField txtQuantity;
 
+    InventoryBOImpl inventoryBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.INVENTORY_BO);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        getAll();
+        setCellValueFactory();
+        generateNextItemId();
+    }
+
+
+
+    private void getAll()  {
+        tblInventory.getItems().clear();
+        try {
+            ArrayList<InventoryDTO> allItem = inventoryBO.getAllItem();
+            for (InventoryDTO i : allItem) {
+                tblInventory.getItems().add(new InventoryTM(i.getItem_id(), i.getItem_name(), i.getCategory(), i.getQuantity()));
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    public void generateNextItemId(){
+        try {
+            String id = inventoryBO.getNextItemId();
+            txtId.setText(id);
+        } catch (Exception e) {
+            System.out.println(e);
+            new Alert(Alert.AlertType.ERROR, "Exception!").show();
+        }
+    }
+
+    private void setCellValueFactory() {
+
+        colId.setCellValueFactory(new PropertyValueFactory<>("item_id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("item_name"));
+        colCategory.setCellValueFactory(new PropertyValueFactory<>("category"));
+        colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+
+    }
+
+
     @FXML
     void btnAddOnAction(ActionEvent event) throws SQLException {
 
-        Inventory inventory =new Inventory();
+        InventoryDTO inventoryDTO = new InventoryDTO();
 
-        inventory.setItem_id(txtId.getText());
-        inventory.setItem_name(txtName.getText());
-        inventory.setCatagory(txtCatagory.getText());
-        inventory.setQuantity(Integer.parseInt(txtQuantity.getText()));
+        inventoryDTO.setItem_id(txtId.getText());
+        inventoryDTO.setItem_name(txtName.getText());
+        inventoryDTO.setCategory(txtCatagory.getText());
+        inventoryDTO.setQuantity(Integer.parseInt(txtQuantity.getText()));
 
 
         try {
-            boolean isSaved = InventoryModel.Save(inventory);
+            boolean isSaved = inventoryBO.saveItem(inventoryDTO);
             if (isSaved) {
-                new Alert(Alert.AlertType.CONFIRMATION,"Saved").show();
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved").show();
                 getAll();
 
                 txtId.setStyle("-fx-border-color : transparent");
@@ -99,42 +144,32 @@ public class InventoryFormController implements Initializable {
             }
         } catch (SQLIntegrityConstraintViolationException throwables) {
 
-            new Alert(Alert.AlertType.ERROR,"Dupplicate ID").show();
+            new Alert(Alert.AlertType.ERROR, "Dupplicate ID").show();
 
 
         } catch (Exception throwables) {
 
-            new Alert(Alert.AlertType.ERROR,"error").show();
+            new Alert(Alert.AlertType.ERROR, "error").show();
             System.out.println(throwables);
         }
         getAll();
 
     }
 
-    @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/HomePage_form.fxml"));
 
-        Scene scene = new Scene(anchorPane);
-
-        Stage stage = (Stage)root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Home");
-        stage.centerOnScreen();
-    }
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) throws SQLException {
 
-        String inventoryId=txtId.getText();
+        String inventory_Id = txtId.getText();
         boolean result = AlertController.okconfirmmessage("Are you sure you want to Delete this Item?");
 
-        if(result==true){
+        if (result == true) {
 
             try {
-                boolean isDeleted = InventoryModel.delete(inventoryId);
+                boolean isDeleted = inventoryBO.deleteItem(inventory_Id);
                 if (isDeleted) {
-                       AlertController.confirmmessage("Delete Successful");
+                    AlertController.confirmmessage("Delete Successful");
 
                     btnAdd.setDisable(true);
                     btnUpdate.setDisable(true);
@@ -142,13 +177,13 @@ public class InventoryFormController implements Initializable {
 
                 } else {
                     //  AlertController.errormessage("Somethink went wrong");
-                    new Alert(Alert.AlertType.ERROR,"Dupplicate ID").show();
+                    new Alert(Alert.AlertType.ERROR, "Dupplicate ID").show();
 
                 }
-            }catch (SQLException throwables){
+            } catch (SQLException throwables) {
                 throwables.printStackTrace();
                 //  AlertController.errormessage("Somethink went wrong");
-                new Alert(Alert.AlertType.ERROR,"Something went wrong").show();
+                new Alert(Alert.AlertType.ERROR, "Something went wrong").show();
 
 
             }
@@ -163,20 +198,20 @@ public class InventoryFormController implements Initializable {
     @FXML
     void btnUpdateOnAction(ActionEvent event) throws SQLException {
 
-        Inventory inventory=new Inventory();
+        InventoryDTO inventoryDTO = new InventoryDTO();
 
-        inventory.setItem_id(txtId.getText());
-        inventory.setItem_name(txtName.getText());
-        inventory.setCatagory(txtCatagory.getText());
-        inventory.setQuantity(Integer.parseInt(txtQuantity.getText()));
+        inventoryDTO.setItem_id(txtId.getText());
+        inventoryDTO.setItem_name(txtName.getText());
+        inventoryDTO.setCategory(txtCatagory.getText());
+        inventoryDTO.setQuantity(Integer.parseInt(txtQuantity.getText()));
 
         boolean result = AlertController.okconfirmmessage("Are you sure you want to Update this Item?");
         if (result == true) {
 
             try {
-                boolean isUpdates = InventoryModel.update(inventory);
+                boolean isUpdates = inventoryBO.updateItem(inventoryDTO);
                 if (isUpdates) {
-                     AlertController.confirmmessage("Updated");
+                    AlertController.confirmmessage("Updated");
                     getAll();
 
                     txtId.setStyle("-fx-border-color : transparent");
@@ -191,54 +226,37 @@ public class InventoryFormController implements Initializable {
                 } else {
 
                     // AlertController.errormessage("Error!!");
-                    new Alert(Alert.AlertType.ERROR,"Something went wrong").show();
+                    new Alert(Alert.AlertType.ERROR, "Something went wrong").show();
 
                 }
             } catch (SQLException e) {
                 System.out.println(e);
                 //  AlertController.errormessage("Error");
 
-                new Alert(Alert.AlertType.ERROR,"Something went wrong").show();
+                new Alert(Alert.AlertType.ERROR, "Something went wrong").show();
 
             }
         }
-
-
     }
 
+    @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/HomePage_form.fxml"));
 
-    private void getAll() throws SQLException {
-        try {
+        Scene scene = new Scene(anchorPane);
 
-            ObservableList<InventoryTM> inventoryData =InventoryModel.getAll();
-            tblInventory.setItems(inventoryData);
-
-        }catch (SQLException throwables){
-            throwables.printStackTrace();
-        }
-    }
-    private void setCellValueFactory() {
-
-        colId.setCellValueFactory(new PropertyValueFactory<>("item_id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("item_name"));
-        colCategory.setCellValueFactory(new PropertyValueFactory<>("catagory"));
-        colQuantity.setCellValueFactory(new PropertyValueFactory<>("quantity"));
-
-    }
-
-    @SneakyThrows
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        setCellValueFactory();
-        getAll();
+        Stage stage = (Stage) root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Home");
+        stage.centerOnScreen();
     }
 
     public void ItemOnMouseClick(MouseEvent mouseEvent) {
 
-        TablePosition pos=tblInventory.getSelectionModel().getSelectedCells().get(0);
-        int row=pos.getRow();
+        TablePosition pos = tblInventory.getSelectionModel().getSelectedCells().get(0);
+        int row = pos.getRow();
 
-        ObservableList<TableColumn<InventoryTM,?>> columns=tblInventory.getColumns();
+        ObservableList<TableColumn<InventoryTM, ?>> columns = tblInventory.getColumns();
 
         txtId.setText(columns.get(0).getCellData(row).toString());
         txtName.setText(columns.get(1).getCellData(row).toString());
@@ -255,18 +273,19 @@ public class InventoryFormController implements Initializable {
             boolean isValidate = DataValidateController.itemIdValidate(id);
             if (isValidate) {
                 txtId.setStyle("-fx-border-color : green;-fx-border-width: 5");
-                btnAdd.setDisable(!isValidate | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnAdd.setDisable(!isValidate | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
                 btnUpdate.setDisable(!isValidate | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
-                btnDelete.setDisable(txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnDelete.setDisable(txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
 
             } else {
                 txtId.setStyle("-fx-border-color : red;-fx-border-width: 5");
-                btnAdd.setDisable(!isValidate | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnAdd.setDisable(!isValidate | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
                 btnUpdate.setDisable(!isValidate | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
-                btnDelete.setDisable(txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnDelete.setDisable(txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
 
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
     }
 
     public void txtValiQty(KeyEvent keyEvent) {
@@ -275,18 +294,19 @@ public class InventoryFormController implements Initializable {
             boolean isValidate = DataValidateController.quantityValidate(id);
             if (isValidate) {
                 txtQuantity.setStyle("-fx-border-color : green;-fx-border-width: 5");
-                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() );
+                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty());
                 btnUpdate.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty());
-                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() );
+                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty());
 
             } else {
                 txtQuantity.setStyle("-fx-border-color : red;-fx-border-width: 5");
-                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() );
+                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty());
                 btnUpdate.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty());
-                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty() );
+                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtCatagory.getText().isEmpty());
 
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
     }
 
     public void txtValiName(KeyEvent keyEvent) {
@@ -295,18 +315,19 @@ public class InventoryFormController implements Initializable {
             boolean isValidate = DataValidateController.customerNameValidate(id);
             if (isValidate) {
                 txtName.setStyle("-fx-border-color : green;-fx-border-width: 5");
-                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
                 btnUpdate.setDisable(!isValidate | txtId.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
-                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
 
             } else {
                 txtName.setStyle("-fx-border-color : red;-fx-border-width: 5");
-                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
                 btnUpdate.setDisable(!isValidate | txtId.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
-                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtCatagory.getText().isEmpty() | txtQuantity.getText().isEmpty());
 
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
     }
 
     public void txtValiCate(KeyEvent keyEvent) {
@@ -315,17 +336,19 @@ public class InventoryFormController implements Initializable {
             boolean isValidate = DataValidateController.customerNameValidate(id);
             if (isValidate) {
                 txtCatagory.setStyle("-fx-border-color : green;-fx-border-width: 5");
-                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtQuantity.getText().isEmpty());
                 btnUpdate.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtQuantity.getText().isEmpty());
-                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtQuantity.getText().isEmpty());
 
             } else {
                 txtCatagory.setStyle("-fx-border-color : red;-fx-border-width: 5");
-                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnAdd.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtQuantity.getText().isEmpty());
                 btnUpdate.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtQuantity.getText().isEmpty());
-                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtQuantity.getText().isEmpty() );
+                btnDelete.setDisable(!isValidate | txtId.getText().isEmpty() | txtName.getText().isEmpty() | txtQuantity.getText().isEmpty());
 
             }
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
     }
 }
+

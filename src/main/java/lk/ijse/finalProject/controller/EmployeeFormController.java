@@ -12,9 +12,10 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.finalProject.dto.Employee;
-import lk.ijse.finalProject.dto.tm.BookTM;
-import lk.ijse.finalProject.dto.tm.EmployeeTM;
+import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.impl.EmployeeBOImpl;
+import lk.ijse.finalProject.dto.EmployeeDTO;
+import lk.ijse.finalProject.view.tdm.EmployeeTM;
 import lk.ijse.finalProject.model.EmployeeModel;
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
@@ -22,6 +23,7 @@ import lk.ijse.finalProject.util.DataValidateController;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class EmployeeFormController implements Initializable {
@@ -75,24 +77,48 @@ public class EmployeeFormController implements Initializable {
     @FXML
     private TextField txtState;
 
+    EmployeeBOImpl employeeBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.EMPLOYEE_BO);
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAll();
         setCellValueFactory();
-
+        generateNextEmployeeId();
     }
 
-    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/HomePage_form.fxml"));
-
-        Scene scene = new Scene(anchorPane);
-
-        Stage stage = (Stage)root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Home");
-        stage.centerOnScreen();
+    private void getAll() {
+        tblEmployee.getItems().clear();
+        try {
+            ArrayList<EmployeeDTO> allEmployee = employeeBO.getAllEmployee();
+            for (EmployeeDTO e : allEmployee) {
+                tblEmployee.getItems().add(new EmployeeTM(e.getEmployee_id(), e.getEmployee_name(), e.getStatus(), e.getAddress(),e.getContact_no()));
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
     }
+
+    public void generateNextEmployeeId(){
+        try {
+            String id = employeeBO.getNextEmployeeId();
+            txtId.setText(id);
+        } catch (Exception e) {
+            System.out.println(e);
+            new Alert(Alert.AlertType.ERROR, "Exception!").show();
+        }
+    }
+
+
+    private void setCellValueFactory() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("employee_id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("employee_name"));
+        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
+        colContact.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
+    }
+
+
 
     public void btnAddOnAction(ActionEvent actionEvent) {
         try {
@@ -105,9 +131,9 @@ public class EmployeeFormController implements Initializable {
             if (emp_id.isEmpty() || emp_name.isEmpty() || status.isEmpty() || address.isEmpty() || contact.isEmpty()) {
                 AlertController.errormessage("Employee details not saved.\nPlease make sure to fill all the required fields ");
             } else {
-                Employee employee = new Employee(emp_id, emp_name, status, address, contact);
+                EmployeeDTO employeeDTO = new EmployeeDTO(emp_id, emp_name, status, address, contact);
 
-                boolean isAdded = EmployeeModel.save(employee);
+                boolean isAdded = employeeBO.saveEmployee(employeeDTO);
                 if (isAdded) {
                     AlertController.confirmmessage("Employee Added Successfully");
                     txtId.setText("");
@@ -141,13 +167,13 @@ public class EmployeeFormController implements Initializable {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
-        String emp_id = txtId.getText();
+        String employee_id = txtId.getText();
 
         boolean result = AlertController.okconfirmmessage("Are you sure you want to remove this employee from the system?");
         if(result==true) {
 
             try {
-                boolean isDeleted = EmployeeModel.delete(emp_id);
+                boolean isDeleted = employeeBO.deleteEmployee(employee_id);
                 if (isDeleted) {
                     AlertController.confirmmessage("Employee Removed Successfully");
                     txtId.setText("");
@@ -185,9 +211,9 @@ public class EmployeeFormController implements Initializable {
                 if(emp_id.isEmpty() || emp_name.isEmpty() || status.isEmpty() || address.isEmpty() || contact.isEmpty()) {
                     AlertController.errormessage("Employee details not saved.\nPlease make sure to fill all the required fields ");
                 }else{
-                    Employee employee = new Employee(emp_id, emp_name, status, address, contact);
+                    EmployeeDTO employeeDTO = new EmployeeDTO(emp_id, emp_name, status, address, contact);
 
-                    boolean isUpdated = EmployeeModel.update(employee);
+                    boolean isUpdated = employeeBO.updateEmployee(employeeDTO);
                     if (isUpdated) {
                         AlertController.confirmmessage("Employee Details Updated");
                         txtId.setText("");
@@ -218,23 +244,18 @@ public class EmployeeFormController implements Initializable {
         }
     }
 
-    private void getAll(){
-        ObservableList<EmployeeTM> obList = null;
-        try {
-            obList = EmployeeModel.getAll();
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-        tblEmployee.setItems(obList);
+    public void btnBackOnAction(ActionEvent actionEvent) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/HomePage_form.fxml"));
+
+        Scene scene = new Scene(anchorPane);
+
+        Stage stage = (Stage)root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Home");
+        stage.centerOnScreen();
     }
 
-    private void setCellValueFactory() {
-        colId.setCellValueFactory(new PropertyValueFactory<>("employee_id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("emplyee_name"));
-        colStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        colContact.setCellValueFactory(new PropertyValueFactory<>("contact"));
-    }
+
 
     public void tblEmployeeOnMouseClicked(MouseEvent mouseEvent) {
         TablePosition pos = tblEmployee.getSelectionModel().getSelectedCells().get(0);

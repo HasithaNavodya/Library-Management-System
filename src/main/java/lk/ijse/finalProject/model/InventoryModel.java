@@ -2,27 +2,26 @@ package lk.ijse.finalProject.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import lk.ijse.finalProject.dto.Donator;
-import lk.ijse.finalProject.dto.Inventory;
-import lk.ijse.finalProject.dto.tm.DonatorTM;
-import lk.ijse.finalProject.dto.tm.InventoryTM;
-import lk.ijse.finalProject.util.CrudUtil;
+import lk.ijse.finalProject.dto.InventoryDTO;
+import lk.ijse.finalProject.view.tdm.InventoryTM;
+
+import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class InventoryModel {
 
-    public static boolean Save(Inventory inventory) throws SQLException {
+    public static boolean Save(InventoryDTO inventory) throws SQLException {
 
-        String sql= "INSERT INTO inventory(item_id,item_name,catagory,quantity)" +
+        String sql= "INSERT INTO inventory(item_id,item_name,category,quantity)" +
                 "VALUES (?,?,?,?)";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
                 inventory.getItem_id(),
                 inventory.getItem_name(),
-                inventory.getCatagory(),
+                inventory.getCategory(),
                 inventory.getQuantity()
         );
 
@@ -31,23 +30,23 @@ public class InventoryModel {
     public static boolean delete(String item_id) throws SQLException {
         String sql="DELETE FROM inventory WHERE item_id=?";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
                 item_id
         );
 
     }
 
-    public static boolean update(Inventory inventory) throws SQLException {
+    public static boolean update(InventoryDTO inventory) throws SQLException {
         String sql="UPDATE inventory SET item_id=?," +
-                "item_name=?,catagory=?,quantity=?";
+                "item_name=?,category=?,quantity=?";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
 
                 sql,
                 inventory.getItem_id(),
                 inventory.getItem_name(),
-                inventory.getCatagory(),
+                inventory.getCategory(),
                 inventory.getQuantity()
 
         );
@@ -60,7 +59,7 @@ public class InventoryModel {
 
         ObservableList<InventoryTM> obList = FXCollections.observableArrayList();
 
-        ResultSet resultSet = CrudUtil.execute(sql);
+        ResultSet resultSet = SQLUtil.execute(sql);
 
         while (resultSet.next()){
 

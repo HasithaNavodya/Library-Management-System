@@ -12,11 +12,10 @@ public interface BookBO extends SuperBO {
 
     boolean saveBook(BookDTO dto) throws SQLException, ClassNotFoundException;
 
-    boolean updateCustomer(BookDTO dto) throws SQLException, ClassNotFoundException;
+    boolean updateBook(BookDTO dto) throws SQLException, ClassNotFoundException;
 
-    boolean existByID(String id) throws SQLException, ClassNotFoundException;
+    boolean deleteBook(String id) throws SQLException, ClassNotFoundException;
 
-    boolean deleteCustomer(String id) throws SQLException, ClassNotFoundException;
+    String generateNewBookID() throws SQLException, ClassNotFoundException;
 
-    String generateNewCustomerID() throws SQLException, ClassNotFoundException;
 }

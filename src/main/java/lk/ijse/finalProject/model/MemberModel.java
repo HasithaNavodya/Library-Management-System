@@ -2,13 +2,10 @@ package lk.ijse.finalProject.model;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import lk.ijse.finalProject.db.DBConnection;
-import lk.ijse.finalProject.dto.Member;
-import lk.ijse.finalProject.dto.tm.MemberTM;
-import lk.ijse.finalProject.util.CrudUtil;
+import lk.ijse.finalProject.dto.MemberDTO;
+import lk.ijse.finalProject.view.tdm.MemberTM;
+import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,38 +13,38 @@ import java.util.List;
 
 public class MemberModel {
 
-    public static boolean add(Member member) throws SQLException {
+    public static boolean add(MemberDTO member) throws SQLException {
         String sql = "INSERT INTO members Values(?,?,?,?,?,?)";
-        return CrudUtil.execute(sql,
+        return SQLUtil.execute(sql,
                 member.getMember_id(),
                 member.getName(),
                 member.getAddress(),
                 member.getGrade(),
-                member.getFee(),
-                member.getContact());
+                member.getMember_fee(),
+                member.getContact_no());
     }
 
-    public static boolean update(Member member) throws SQLException {
+    public static boolean update(MemberDTO member) throws SQLException {
         String sql = "Update members SET name =?,address =?,grade=?,member_fee=?,contact_no=? WHERE member_id = ?";
-        return CrudUtil.execute(sql,
+        return SQLUtil.execute(sql,
 
                 member.getName(),
                 member.getAddress(),
                 member.getGrade(),
-                member.getFee(),
-                member.getContact(),
+                member.getMember_fee(),
+                member.getContact_no(),
                 member.getMember_id());
 
     }
 
     public static boolean delete(String id) throws SQLException {
         String sql ="DELETE FROM members WHERE member_id = ?";
-        return  CrudUtil.execute(sql,id);
+        return  SQLUtil.execute(sql,id);
     }
 
     public static ObservableList<MemberTM> getAll() throws SQLException {
         String sql = "SELECT * FROM members";
-        ResultSet resultSet = CrudUtil.execute(sql);
+        ResultSet resultSet = SQLUtil.execute(sql);
         ObservableList<MemberTM> obList = FXCollections.observableArrayList();
 
 
@@ -67,7 +64,7 @@ public class MemberModel {
 
     public static ObservableList<String> loadIds() throws SQLException {
         String sql = "SELECT member_id FROM members";
-        ResultSet resultSet = CrudUtil.execute(sql);
+        ResultSet resultSet = SQLUtil.execute(sql);
         ObservableList<String> data = FXCollections.observableArrayList();
 
         while (resultSet.next()){
@@ -78,7 +75,7 @@ public class MemberModel {
 
     public static List<String> loadMemberIds() throws SQLException {
         String sql = "SELECT member_id FROM members";
-        ResultSet resultSet = CrudUtil.execute(sql);
+        ResultSet resultSet = SQLUtil.execute(sql);
 
         List<String> data = new ArrayList<>();
 

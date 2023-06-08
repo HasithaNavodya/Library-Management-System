@@ -1,14 +1,12 @@
 package lk.ijse.finalProject.model;
 
 import lk.ijse.finalProject.db.DBConnection;
-import lk.ijse.finalProject.dto.DonateBooks;
-import lk.ijse.finalProject.util.CrudUtil;
+import lk.ijse.finalProject.dto.DonateBooksDTO;
+import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.List;
 
 public class DonateBooksModel {
@@ -16,7 +14,7 @@ public class DonateBooksModel {
     public static String getNextDonationId() throws SQLException {
         String sql = "SELECT donation_id FROM book_donation ORDER BY donation_id DESC LIMIT 1";
 
-        ResultSet resultSet = CrudUtil.execute(sql);
+        ResultSet resultSet = SQLUtil.execute(sql);
 
         if (resultSet.next()) {
             return splitOrderId(resultSet.getString(1));
@@ -35,7 +33,7 @@ public class DonateBooksModel {
         return "DNTN-001";
     }
 
-    public static boolean placeDonation(String donation_id, String donator_id, List<DonateBooks> donateBooksList) throws SQLException {
+    public static boolean placeDonation(String donation_id, String donator_id, List<DonateBooksDTO> donateBooksList) throws SQLException {
         Connection con = null;
         try {
             con = DBConnection.getInstance().getConnection();
@@ -62,8 +60,8 @@ public class DonateBooksModel {
         }
     }
 
-    private static boolean saveDonation(String donation_id, String donator_id, List<DonateBooks> donateBooksList) throws SQLException {
-        for(DonateBooks donateBooks : donateBooksList) {
+    private static boolean saveDonation(String donation_id, String donator_id, List<DonateBooksDTO> donateBooksList) throws SQLException {
+        for(DonateBooksDTO donateBooks : donateBooksList) {
             if(!save(donation_id,donator_id, donateBooks)) {
                 return false;
             }
@@ -71,15 +69,16 @@ public class DonateBooksModel {
         return true;
     }
 
-    private static boolean save(String donation_id, String donator_id, DonateBooks donateBooks) throws SQLException {
+    private static boolean save(String donation_id, String donator_id, DonateBooksDTO donateBooks) throws SQLException {
         String sql = "INSERT INTO book_donation(donation_id,donater_id,book_id)" +
                 "VALUES(?, ?, ?)";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
                 donation_id,
                 donator_id,
-                donateBooks.getId()
+                donateBooks.getBook_id()
         );
     }
+
 }

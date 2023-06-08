@@ -33,7 +33,7 @@
             <Font size="14.0" />
          </font>
       </TextField>
-      <TextField fx:id="txtBookname" layoutX="406.0" layoutY="389.0" onKeyTyped="#txtBooknameOnKeyTyped" prefHeight="49.0" prefWidth="241.0" promptText="Contact">
+      <TextField fx:id="txtContact" layoutX="406.0" layoutY="389.0" onKeyTyped="#txtBooknameOnKeyTyped" prefHeight="49.0" prefWidth="241.0" promptText="Contact">
          <font>
             <Font size="14.0" />
          </font>
@@ -42,7 +42,7 @@
          <columns>
             <TableColumn fx:id="colDonId" prefWidth="91.0" text="Donator ID" />
             <TableColumn fx:id="colDonName" prefWidth="180.0" text="Donator Name" />
-            <TableColumn fx:id="colBookName" prefWidth="141.0" text="Contact" />
+            <TableColumn fx:id="colContact" prefWidth="141.0" text="Contact" />
             <TableColumn fx:id="colDate" prefWidth="129.0" text="Joined Date" />
          </columns>
       </TableView>

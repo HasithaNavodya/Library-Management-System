@@ -3,10 +3,10 @@ package lk.ijse.finalProject.model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import lk.ijse.finalProject.dto.BookDTO;
-import lk.ijse.finalProject.dto.BorrowBooks;
-import lk.ijse.finalProject.dto.DonateBooks;
-import lk.ijse.finalProject.dto.tm.BookTM;
-import lk.ijse.finalProject.util.CrudUtil;
+import lk.ijse.finalProject.dto.BorrowBooksDTO;
+import lk.ijse.finalProject.dto.DonateBooksDTO;
+import lk.ijse.finalProject.view.tdm.BookTM;
+import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +20,7 @@ public class BookModel {
 
         ObservableList<BookTM> obList = FXCollections.observableArrayList();
 
-        ResultSet resultSet = CrudUtil.execute(sql);
+        ResultSet resultSet = SQLUtil.execute(sql);
         while (resultSet.next()) {
             obList.add(new BookTM(
                     resultSet.getString(1),
@@ -36,7 +36,7 @@ public class BookModel {
         String sql = "INSERT INTO books(book_id,name,author,category,cupboard_no) " +
                 "VALUES(?,?,?,?,?)";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
                 book.getBook_id(),
                 book.getName(),
@@ -53,13 +53,13 @@ public class BookModel {
 //
 //            return pstm.executeUpdate() > 0;
 //        }
-        return CrudUtil.execute(sql,book_id);
+        return SQLUtil.execute(sql,book_id);
     }
 
     public static boolean update(BookDTO book) throws SQLException {
         String sql = "UPDATE books SET name=?,author=?,category=?,cupboard_no=? WHERE book_id=?";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
                 book.getName(),
                 book.getAuthor(),
@@ -74,7 +74,7 @@ public class BookModel {
     public static String getNextBookId() throws SQLException {
         String sql = "SELECT book_id FROM books ORDER BY book_id DESC LIMIT 1";
 
-        ResultSet resultSet = CrudUtil.execute(sql);
+        ResultSet resultSet = SQLUtil.execute(sql);
 
         if (resultSet.next()) {
             return splitOrderId(resultSet.getString(1));
@@ -93,32 +93,31 @@ public class BookModel {
         return "BOOK-001";
     }
 
-    public static boolean saveBooks(List<DonateBooks> donateBooksList) throws SQLException {
-        for(DonateBooks donateBooks : donateBooksList) {
-            if(!save(donateBooks)) {
+    public static boolean saveBooks(List<DonateBooksDTO> donateBooksList) throws SQLException {
+        for(DonateBooksDTO donateBooksDTO : donateBooksList) {
+            if(!save(donateBooksDTO)) {
                 return false;
             }
         }
         return true;
     }
 
-    private static boolean save(DonateBooks donateBooks) throws SQLException {
-        String sql = "INSERT INTO books(book_id,name,author,catagory,cupboard_no)" +
+
+    private static boolean save(DonateBooksDTO donateBooks) throws SQLException {
+        String sql = "INSERT INTO books(book_id,name,author,category,cupboard_no)" +
                 "VALUES(?, ?, ?, ?, ?)";
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
-                donateBooks.getId(),
-                donateBooks.getName(),
-                donateBooks.getAuthor(),
-                donateBooks.getCategory(),
-                donateBooks.getCupNo()
+                donateBooks.getDonation_id(),
+                donateBooks.getDonator_id(),
+                donateBooks.getBook_id()
         );
     }
 
     public static List<String> loadBookIDs() throws SQLException {
         String sql = "SELECT book_id FROM books";
-        ResultSet resultSet = CrudUtil.execute(sql);
+        ResultSet resultSet = SQLUtil.execute(sql);
 
         List<String> data = new ArrayList<>();
 
@@ -128,20 +127,20 @@ public class BookModel {
         return data;
     }
 
-    public static boolean deleteBooks(List<BorrowBooks> borrowBooksList) throws SQLException {
-        for(BorrowBooks borrowBooks : borrowBooksList) {
-            if(!deleteBooks(borrowBooks)) {
+    public static boolean deleteBooks(List<BorrowBooksDTO> borrowBooksList) throws SQLException {
+        for(BorrowBooksDTO borrowBooksDTO : borrowBooksList) {
+            if(!deleteBooks(borrowBooksDTO)) {
                 return false;
             }
         }
         return true;
     }
 
-    private static boolean deleteBooks(BorrowBooks borrowBooks) throws SQLException {
+    private static boolean deleteBooks(BorrowBooksDTO borrowBooks) throws SQLException {
         String sql = "DELETE FROM books WHERE book_id=?";
 
 
-        return CrudUtil.execute(
+        return SQLUtil.execute(
                 sql,
                 borrowBooks.getBook_id()
         );

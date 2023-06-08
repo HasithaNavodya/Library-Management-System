@@ -20,14 +20,12 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.impl.BorrowBooksBOImpl;
 import lk.ijse.finalProject.db.DBConnection;
-import lk.ijse.finalProject.dto.BorrowBooks;
-import lk.ijse.finalProject.dto.DonateBooks;
-import lk.ijse.finalProject.dto.tm.BorrowBookCartTM;
-import lk.ijse.finalProject.dto.tm.DonateBookCartTM;
+import lk.ijse.finalProject.dto.BorrowBooksDTO;
+import lk.ijse.finalProject.view.tdm.BorrowBookCartTM;
 import lk.ijse.finalProject.model.BookModel;
-import lk.ijse.finalProject.model.BorrowBooksModel;
-import lk.ijse.finalProject.model.DonateBooksModel;
 import lk.ijse.finalProject.model.MemberModel;
 import lk.ijse.finalProject.util.AlertController;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -89,9 +87,42 @@ public class BorrowBooksController {
     @FXML
     private TableView<BorrowBookCartTM> tblBookBorrow;
 
+    BorrowBooksBOImpl borrowBooksBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.BORROW_BOOKS_BO);
+
+    @FXML
+    public void initialize() {
+        assert btnAdd != null : "fx:id=\"btnAdd\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert btnAddToCart != null : "fx:id=\"btnAddToCart\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert cmbBookID != null : "fx:id=\"cmbBookID\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert cmbMemberID != null : "fx:id=\"cmbMemberID\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert colAction != null : "fx:id=\"colAction\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert colBookId != null : "fx:id=\"colBookId\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert colDueDate != null : "fx:id=\"colDueDate\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert colIssueId != null : "fx:id=\"colIssueId\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert colMemberId != null : "fx:id=\"colMemberId\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert datePickerDueDate != null : "fx:id=\"datePickerDueDate\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert lblDonationId != null : "fx:id=\"lblDonationId\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert lblIssueId != null : "fx:id=\"lblIssueId\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+        assert root != null : "fx:id=\"root\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
+
+        generateNextIssueId();
+        loadMemberIDs();
+        loadBookIDs();
+        setCellValueFactory();
+    }
+
+    private void setCellValueFactory() {
+        colIssueId.setCellValueFactory(new PropertyValueFactory<>("issue_id"));
+        colMemberId.setCellValueFactory(new PropertyValueFactory<>("member_id"));
+        colBookId.setCellValueFactory(new PropertyValueFactory<>("book_id"));
+        colDueDate.setCellValueFactory(new PropertyValueFactory<>("due_date"));
+        colAction.setCellValueFactory(new PropertyValueFactory<>("removeBtn"));
+    }
+
     public void generateNextIssueId(){
         try {
-            String id = BorrowBooksModel.getNextIssueId();
+            String id = borrowBooksBO.getNextIssueId();
             lblIssueId.setText(id);
         } catch (Exception e) {
             System.out.println(e);
@@ -99,35 +130,6 @@ public class BorrowBooksController {
         }
     }
 
-    public void loadMemberIDs(){
-        try {
-            ObservableList<String> obList = FXCollections.observableArrayList();
-            List<String> ids = MemberModel.loadMemberIds();
-
-            for (String id : ids) {
-                obList.add(id);
-            }
-            cmbMemberID.setItems(obList);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
-        }
-    }
-
-    public void loadBookIDs(){
-        try {
-            ObservableList<String> obList = FXCollections.observableArrayList();
-            List<String> ids = BookModel.loadBookIDs();
-
-            for (String id : ids) {
-                obList.add(id);
-            }
-            cmbBookID.setItems(obList);
-        } catch (SQLException e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
-        }
-    }
 
     @FXML
     void btnAddOnAction(ActionEvent event) {
@@ -138,20 +140,24 @@ public class BorrowBooksController {
         if (obList.isEmpty()) {
             AlertController.errormessage("Please make sure to add related details to the cart first");
         } else {
-            List<BorrowBooks> borrowBooksList = new ArrayList<>();
+            List<BorrowBooksDTO> borrowBooksList = new ArrayList<>();
 
             for (int i = 0; i < tblBookBorrow.getItems().size(); i++) {
                 BorrowBookCartTM borrowBookCartTM = obList.get(i);
 
-                BorrowBooks placeIssue = new BorrowBooks(
-                        borrowBookCartTM.getBook_id()
+                BorrowBooksDTO placeIssue = new BorrowBooksDTO(
+                        borrowBookCartTM.getIssue_id(),
+                        borrowBookCartTM.getMember_id(),
+                        borrowBookCartTM.getBook_id(),
+                        borrowBookCartTM.getDue_date()
                 );
                 borrowBooksList.add(placeIssue);
             }
 
             boolean isPlaced = false;
             try {
-                isPlaced = BorrowBooksModel.placeIssue(issue_id,mem_id,due_date, borrowBooksList);
+                BorrowBooksDTO borrowBooksDTO = new BorrowBooksDTO(issue_id,mem_id,due_date, borrowBooksList);
+                isPlaced = borrowBooksBO.placeIssue(borrowBooksDTO);
                 if (isPlaced) {
                     AlertController.confirmmessage("Book/Books Issued Successfully");
 
@@ -186,6 +192,7 @@ public class BorrowBooksController {
     }
 
     private ObservableList<BorrowBookCartTM> obList = FXCollections.observableArrayList();
+
     @FXML
     void btnAddToCartOnAction(ActionEvent event) {
         String issue_id = lblIssueId.getText();
@@ -208,8 +215,15 @@ public class BorrowBooksController {
                     if (colBookId.getCellData(i).equals(book_id)) {
 
                         AlertController.errormessage(book_id+" Already Added to the Cart");
+                        break;
                     }
                 }
+                BorrowBookCartTM tm = new BorrowBookCartTM(issue_id,mem_id,book_id,due_date,btnremove);
+
+                obList.add(tm);
+                tblBookBorrow.setItems(obList);
+
+                cmbBookID.setValue(null);
             } else {
                 BorrowBookCartTM tm = new BorrowBookCartTM(issue_id,mem_id,book_id,due_date,btnremove);
 
@@ -219,16 +233,52 @@ public class BorrowBooksController {
                 cmbBookID.setValue(null);
             }
         }
-
     }
 
-    private void setCellValueFactory() {
-        colIssueId.setCellValueFactory(new PropertyValueFactory<>("issue_id"));
-        colMemberId.setCellValueFactory(new PropertyValueFactory<>("member_id"));
-        colBookId.setCellValueFactory(new PropertyValueFactory<>("book_id"));
-        colDueDate.setCellValueFactory(new PropertyValueFactory<>("due_date"));
-        colAction.setCellValueFactory(new PropertyValueFactory<>("removeBtn"));
+    @FXML
+    void btnBackOnAction(ActionEvent event) throws IOException {
+        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/HomePage_form.fxml"));
+
+        Scene scene = new Scene(anchorPane);
+
+        Stage stage = (Stage)root.getScene().getWindow();
+        stage.setScene(scene);
+        stage.setTitle("Home");
+        stage.centerOnScreen();
     }
+
+    public void loadMemberIDs(){
+        try {
+            ObservableList<String> obList = FXCollections.observableArrayList();
+            List<String> ids = borrowBooksBO.loadMemberIds();
+
+            for (String id : ids) {
+                obList.add(id);
+            }
+            cmbMemberID.setItems(obList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
+        }
+    }
+
+    public void loadBookIDs(){
+        try {
+            ObservableList<String> obList = FXCollections.observableArrayList();
+            List<String> ids = borrowBooksBO.loadBookIDs();
+
+            for (String id : ids) {
+                obList.add(id);
+            }
+            cmbBookID.setItems(obList);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
+        }
+    }
+
+
+
 
     private void setRemoveBtnOnAction(Button btn) {
         btn.setOnAction((e) -> {
@@ -246,40 +296,4 @@ public class BorrowBooksController {
             }
         });
     }
-
-    @FXML
-    void btnBackOnAction(ActionEvent event) throws IOException {
-        AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/HomePage_form.fxml"));
-
-        Scene scene = new Scene(anchorPane);
-
-        Stage stage = (Stage)root.getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("Home");
-        stage.centerOnScreen();
-    }
-
-    @FXML
-    void initialize() {
-        assert btnAdd != null : "fx:id=\"btnAdd\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert btnAddToCart != null : "fx:id=\"btnAddToCart\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert btnBack != null : "fx:id=\"btnBack\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert cmbBookID != null : "fx:id=\"cmbBookID\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert cmbMemberID != null : "fx:id=\"cmbMemberID\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert colAction != null : "fx:id=\"colAction\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert colBookId != null : "fx:id=\"colBookId\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert colDueDate != null : "fx:id=\"colDueDate\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert colIssueId != null : "fx:id=\"colIssueId\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert colMemberId != null : "fx:id=\"colMemberId\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert datePickerDueDate != null : "fx:id=\"datePickerDueDate\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert lblDonationId != null : "fx:id=\"lblDonationId\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert lblIssueId != null : "fx:id=\"lblIssueId\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-        assert root != null : "fx:id=\"root\" was not injected: check your FXML file 'Borrow_books_form.fxml'.";
-
-        generateNextIssueId();
-        loadMemberIDs();
-        loadBookIDs();
-        setCellValueFactory();
-    }
-
 }

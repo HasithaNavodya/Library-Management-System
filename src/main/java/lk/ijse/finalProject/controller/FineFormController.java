@@ -12,22 +12,25 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import lk.ijse.finalProject.dto.Fine;
-import lk.ijse.finalProject.dto.tm.FineTM;
-import lk.ijse.finalProject.dto.tm.MemberTM;
-import lk.ijse.finalProject.model.FineModel;
+import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.impl.FineBOImpl;
+import lk.ijse.finalProject.dto.FineDTO;
+import lk.ijse.finalProject.view.tdm.FineTM;
 import lk.ijse.finalProject.model.MemberModel;
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class FineFormController implements Initializable {
 
-    public ComboBox cmbCustIds;
+
+    @FXML
+    private ComboBox cmbCustIds;
+
     @FXML
     private Button btnAdd;
 
@@ -70,6 +73,48 @@ public class FineFormController implements Initializable {
     @FXML
     private TextField txtId;
 
+    FineBOImpl fineBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.FINE_BO);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        loadCustIds();
+        setCellValueFactory();
+        getAll();
+        generateNextFineId();
+
+    }
+
+    public void generateNextFineId(){
+        try {
+            String id = fineBO.getNextFineId();
+            txtId.setText(id);
+        } catch (Exception e) {
+            System.out.println(e);
+            new Alert(Alert.AlertType.ERROR, "Exception!").show();
+        }
+    }
+
+    private void getAll()  {
+        tblFine.getItems().clear();
+        try {
+            ArrayList<FineDTO> allFine = fineBO.getAllFine();
+            for (FineDTO f : allFine) {
+                tblFine.getItems().add(new FineTM(f.getFine_id(), f.getAmount(), f.getDate(), f.getDescription(),f.getMember_id()));
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
+        }
+    }
+
+    private void setCellValueFactory() {
+        colFineId.setCellValueFactory(new PropertyValueFactory<>("fine_id"));
+        colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+
+    }
+
     @FXML
     void btnAddOnAction(ActionEvent event) {
        String id = txtId.getText();
@@ -78,13 +123,13 @@ public class FineFormController implements Initializable {
        String desc = txtDesc.getText();
        String cId = String.valueOf(cmbCustIds.getValue());
 
-        Fine fine = new Fine(id,amount,date,desc,cId);
+        FineDTO fineDTO = new FineDTO(id,amount,date,desc,cId);
 
         try {
-            boolean isSaved = FineModel.add(fine);
+            boolean isSaved = fineBO.saveFine(fineDTO);
             if(isSaved){
                 AlertController.confirmmessage("Fine Details Is Saved!");
-                getAll();
+                //getAll();
                 ClearAll();
 
                 txtId.setStyle("-fx-border-color : transparent");
@@ -99,6 +144,7 @@ public class FineFormController implements Initializable {
             }
         } catch (SQLException throwables) {
             AlertController.errormessage("Something Wemt Wrong");
+            System.out.println(throwables);
         }
 
     }
@@ -117,10 +163,10 @@ public class FineFormController implements Initializable {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
-  String id = txtId.getText();
+    String id = txtId.getText();
 
         try {
-            boolean isDelete = FineModel.delete(id);
+            boolean isDelete = fineBO.deleteFineId(id);
             if(isDelete){
                 AlertController.confirmmessage("Fine Details Deleted Successfully !");
                 getAll();
@@ -144,9 +190,9 @@ public class FineFormController implements Initializable {
         String desc = txtDesc.getText();
         String cId = String.valueOf(cmbCustIds.getValue());
 
-        Fine fine = new Fine(id,amount,date,desc,cId);
+        FineDTO fineDTO = new FineDTO(id,amount,date,desc,cId);
         try {
-            boolean isUpdate = FineModel.update(fine);
+            boolean isUpdate = fineBO.updateFine(fineDTO);
             if(isUpdate){
                 AlertController.confirmmessage("Fine Details Is Update!");
                 getAll();
@@ -166,31 +212,7 @@ public class FineFormController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadCustIds();
-        setCellValueFactory();
-        getAll();
 
-    }
-
-    private void getAll() {
-        try {
-            ObservableList<FineTM> obList = FineModel.getAll();
-            tblFine.setItems(obList);
-        } catch (SQLException e) {
-
-        }
-    }
-
-    private void setCellValueFactory() {
-        colFineId.setCellValueFactory(new PropertyValueFactory<>("fine_id"));
-        colAmount.setCellValueFactory(new PropertyValueFactory<>("amount"));
-        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-
-        colDescription.setCellValueFactory(new PropertyValueFactory<>("desription"));
-
-    }
 
     private void loadCustIds() {
 
@@ -221,7 +243,7 @@ public class FineFormController implements Initializable {
             txtId.setText(tm.getFine_id());
             txtAmount.setText(String.valueOf(tm.getAmount()));
             txtDate.setText(tm.getDate());
-            txtDesc.setText(tm.getDesription());
+            txtDesc.setText(tm.getDescription());
             cmbCustIds.setValue(tm.getMem_id());
 
         btnDelete.setDisable(false);
