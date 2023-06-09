@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.BookBO;
 import lk.ijse.finalProject.bo.custom.impl.BookBOImpl;
 import lk.ijse.finalProject.dto.BookDTO;
 import lk.ijse.finalProject.view.tdm.BookTM;
@@ -76,7 +77,7 @@ public class BookFormController implements Initializable {
     @FXML
     private TextField txtNo;
 
-    BookBOImpl bookBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.BOOK_BO);
+    BookBO bookBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.BOOK_BO);
 
     @Override
     public void initialize(java.net.URL url, ResourceBundle resourceBundle) {

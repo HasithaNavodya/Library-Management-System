@@ -61,7 +61,7 @@ FROM books]]>
 		<property name="com.jaspersoft.studio.field.label" value="author"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="books"/>
 	</field>
-	<field name="catagory" class="java.lang.String">
+	<field name="category" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="catagory"/>
 		<property name="com.jaspersoft.studio.field.label" value="catagory"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="books"/>
@@ -90,6 +90,16 @@ FROM books]]>
 				</textElement>
 				<text><![CDATA[BOOK DETAILS ]]></text>
 			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="220" y="73" width="100" height="30" uuid="860e51fc-2265-47df-99c2-9c79dd925e35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm">
+				<reportElement x="220" y="97" width="100" height="30" uuid="29888bb0-459e-4356-917b-c95694e10294"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
@@ -132,7 +142,7 @@ FROM books]]>
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="57" splitType="Stretch">
+		<band height="68" splitType="Stretch">
 			<line>
 				<reportElement x="10" y="56" width="534" height="1" forecolor="#949494" uuid="fc6b094d-77db-4e37-9a79-a95d282a7459"/>
 				<graphicElement>
@@ -160,9 +170,9 @@ FROM books]]>
 				<textFieldExpression><![CDATA[$F{author}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="340" y="10" width="100" height="30" uuid="50c3cce6-d862-4480-a3e2-804bebfc7685"/>
+				<reportElement x="340" y="11" width="90" height="29" uuid="085e3c5d-8eb4-4eda-a788-0b551f4161f2"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{catagory}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{category}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

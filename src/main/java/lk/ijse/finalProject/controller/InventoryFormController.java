@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.InventoryBO;
 import lk.ijse.finalProject.bo.custom.impl.InventoryBOImpl;
 import lk.ijse.finalProject.dto.FineDTO;
 import lk.ijse.finalProject.dto.InventoryDTO;
@@ -73,7 +74,7 @@ public class InventoryFormController implements Initializable {
     @FXML
     private TextField txtQuantity;
 
-    InventoryBOImpl inventoryBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.INVENTORY_BO);
+    InventoryBO inventoryBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.INVENTORY_BO);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){

@@ -8,13 +8,13 @@ import java.util.ArrayList;
 
 public interface DonatorBO extends SuperBO {
 
-    ArrayList<DonatorDTO> getAllDonator() throws SQLException, ClassNotFoundException;
+    public ArrayList<DonatorDTO> getAllDonator() throws SQLException;
 
-    boolean saveDonator(DonatorDTO dto) throws SQLException, ClassNotFoundException;
+    public boolean saveDonator(DonatorDTO donatorDTO) throws SQLException;
 
-    boolean updateDonator(DonatorDTO dto) throws SQLException, ClassNotFoundException;
+    public boolean deleteDonator(String donator_id) throws SQLException;
 
-    boolean deleteDonator(String id) throws SQLException, ClassNotFoundException;
+    public boolean updateDonator(DonatorDTO donatorDTO) throws SQLException;
 
-    String generateNewDonatorID() throws SQLException, ClassNotFoundException;
+    public String getNextDonatorId() throws SQLException;
 }

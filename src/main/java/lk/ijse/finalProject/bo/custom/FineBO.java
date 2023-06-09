@@ -9,13 +9,13 @@ import java.util.ArrayList;
 
 public interface FineBO extends SuperBO {
 
-    ArrayList<FineDTO> getAllFine() throws SQLException, ClassNotFoundException;
+    public ArrayList<FineDTO> getAllFine() throws SQLException;
 
-    boolean saveFine(FineDTO dto) throws SQLException, ClassNotFoundException;
+    public boolean saveFine(FineDTO fineDTO) throws SQLException;
 
-    boolean updateFine(FineDTO dto) throws SQLException, ClassNotFoundException;
+    public boolean deleteFineId(String fine_id) throws SQLException;
 
-    boolean deleteFine(String id) throws SQLException, ClassNotFoundException;
+    public boolean updateFine(FineDTO fineDTO) throws SQLException;
 
-    String generateNewFineID() throws SQLException, ClassNotFoundException;
+    public String getNextFineId() throws SQLException;
 }

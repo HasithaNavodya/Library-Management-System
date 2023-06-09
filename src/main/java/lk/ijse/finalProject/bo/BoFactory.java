@@ -16,7 +16,7 @@ public class BoFactory {
     }
 
     public enum BOTypes {
-        BOOK_BO,BORROW_BOOKS_BO,DONATE_BOOKS_BO,DONATOR_BO,EMPLOYEE_BO,FINE_BO,INVENTORY_BO,MEMBER_BO,SALARY_BO
+        BOOK_BO,BORROW_BOOKS_BO,DONATE_BOOKS_BO,DONATOR_BO,EMPLOYEE_BO,FINE_BO,INVENTORY_BO,LOGIN_BO,MEMBER_BO,SALARY_BO,SIGNUP_BO
     }
 
     public <T extends SuperBO> T getBO(BOTypes boTypes) {
@@ -42,11 +42,17 @@ public class BoFactory {
             case INVENTORY_BO:
                 return (T) new InventoryBOImpl();
 
+            case LOGIN_BO:
+                return (T) new LoginBOImpl();
+
             case MEMBER_BO:
                 return (T) new MemberBOImpl();
 
             case SALARY_BO:
                 return (T) new SalaryBOImpl();
+
+            case SIGNUP_BO:
+                return (T) new SignupBOImpl();
 
             default:
                 return null;

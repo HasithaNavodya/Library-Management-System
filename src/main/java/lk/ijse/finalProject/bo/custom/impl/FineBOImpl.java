@@ -1,5 +1,6 @@
 package lk.ijse.finalProject.bo.custom.impl;
 
+import lk.ijse.finalProject.bo.custom.FineBO;
 import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.FineDAO;
 import lk.ijse.finalProject.dao.custom.impl.FineDAOImpl;
@@ -8,7 +9,7 @@ import lk.ijse.finalProject.dto.FineDTO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class FineBOImpl {
+public class FineBOImpl implements FineBO {
     FineDAO fineDAO = DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.FINE);
 
 

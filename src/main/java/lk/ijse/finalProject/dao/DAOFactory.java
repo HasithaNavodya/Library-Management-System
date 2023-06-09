@@ -17,7 +17,7 @@ public class DAOFactory {
     }
 
     public enum DAOTypes {
-        BOOK, BORROW_BOOKS, DONATE_BOOKS, DONATOR,EMPLOYEE,FINE,INVENTORY,MEMBER,SALARY,QUERY_DAO
+        BOOK, BORROW_BOOKS, DONATE_BOOKS, DONATOR,EMPLOYEE,FINE,INVENTORY,MEMBER,SALARY,QUERY_DAO,USER
     }
 
     public <T extends SuperDAO> T getDAO(DAOTypes res) {
@@ -51,6 +51,9 @@ public class DAOFactory {
 
             case QUERY_DAO:
                 return (T) new QueryDAOImpl();
+
+            case USER:
+                return (T) new UserDAOImpl();
 
             default:
                 return null;

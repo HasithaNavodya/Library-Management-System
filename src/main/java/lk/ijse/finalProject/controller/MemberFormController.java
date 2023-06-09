@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.MemberBO;
 import lk.ijse.finalProject.bo.custom.impl.MemberBOImpl;
 import lk.ijse.finalProject.dto.MemberDTO;
 import lk.ijse.finalProject.util.AlertController;
@@ -79,7 +80,7 @@ public class MemberFormController implements Initializable {
     @FXML
     private TextField txtName;
 
-    MemberBOImpl memberBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.MEMBER_BO);
+    MemberBO memberBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.MEMBER_BO);
 
     public void initialize(java.net.URL url, ResourceBundle resourceBundle) {
         ClearAll();

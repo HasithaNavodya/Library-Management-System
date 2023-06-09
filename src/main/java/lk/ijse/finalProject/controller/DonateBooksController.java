@@ -13,6 +13,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.DonateBooksBO;
 import lk.ijse.finalProject.bo.custom.impl.DonateBooksBOImpl;
 import lk.ijse.finalProject.db.DBConnection;
 import lk.ijse.finalProject.dto.DonateBooksDTO;
@@ -90,7 +91,7 @@ public class DonateBooksController implements Initializable {
     @FXML
     private TextField txtCupboardNo;
 
-    DonateBooksBOImpl donateBooksBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.DONATE_BOOKS_BO);
+    DonateBooksBO donateBooksBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.DONATE_BOOKS_BO);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

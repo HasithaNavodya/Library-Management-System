@@ -14,6 +14,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.LoginBO;
+import lk.ijse.finalProject.bo.custom.impl.LoginBOImpl;
 import lk.ijse.finalProject.dto.UserDTO;
 import lk.ijse.finalProject.model.UserModel;
 import lk.ijse.finalProject.util.AlertController;
@@ -42,6 +45,8 @@ public class LoginFormController {
 
     @FXML
     private Label lblError;
+
+    LoginBO loginBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.LOGIN_BO);
 
     @FXML
     private Stage stage;
@@ -81,8 +86,8 @@ public class LoginFormController {
     public void btnLoginOnAction(ActionEvent actionEvent) throws IOException {
 
 
-        userDTO.setUserName(txtUsername.getText());
-        userDTO.setPassword(txtPassword.getText());
+        /*userDTO.setUserName(txtUsername.getText());
+        userDTO.setPassword(txtPassword.getText());*/
 
         try {
 
@@ -93,7 +98,7 @@ public class LoginFormController {
             }
             else{
 
-                    if (UserModel.LoginAction(userDTO)){
+                    if (loginBO.LoginAction(new UserDTO(txtUsername.getText(),txtPassword.getText()))){
                        // new Alert(Alert.AlertType.CONFIRMATION,"Loging Sucssesful").show();
                         boolean result = AlertController.notificationBar("LIBRARY MANAGEMENT ","Login Successful");
 
@@ -114,7 +119,7 @@ public class LoginFormController {
                         }
                     }
 
-                if (!UserModel.LoginAction(userDTO)){
+                if (!loginBO.LoginAction(new UserDTO(txtUsername.getText(),txtPassword.getText()))){
                     new Alert(Alert.AlertType.ERROR,"invalid  login details").show();
 
 

@@ -21,6 +21,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.BorrowBooksBO;
 import lk.ijse.finalProject.bo.custom.impl.BorrowBooksBOImpl;
 import lk.ijse.finalProject.db.DBConnection;
 import lk.ijse.finalProject.dto.BorrowBooksDTO;
@@ -87,7 +88,7 @@ public class BorrowBooksController {
     @FXML
     private TableView<BorrowBookCartTM> tblBookBorrow;
 
-    BorrowBooksBOImpl borrowBooksBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.BORROW_BOOKS_BO);
+    BorrowBooksBO borrowBooksBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.BORROW_BOOKS_BO);
 
     @FXML
     public void initialize() {

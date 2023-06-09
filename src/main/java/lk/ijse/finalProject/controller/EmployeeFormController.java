@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.EmployeeBO;
 import lk.ijse.finalProject.bo.custom.impl.EmployeeBOImpl;
 import lk.ijse.finalProject.dto.EmployeeDTO;
 import lk.ijse.finalProject.view.tdm.EmployeeTM;
@@ -77,7 +78,7 @@ public class EmployeeFormController implements Initializable {
     @FXML
     private TextField txtState;
 
-    EmployeeBOImpl employeeBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.EMPLOYEE_BO);
+    EmployeeBO employeeBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.EMPLOYEE_BO);
 
 
     @Override

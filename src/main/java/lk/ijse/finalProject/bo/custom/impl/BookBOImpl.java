@@ -1,5 +1,6 @@
 package lk.ijse.finalProject.bo.custom.impl;
 
+import lk.ijse.finalProject.bo.custom.BookBO;
 import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.BookDAO;
 import lk.ijse.finalProject.dao.custom.impl.BookDAOImpl;
@@ -11,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BookBOImpl {
+public class BookBOImpl implements BookBO {
     BookDAO bookDAO = DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.BOOK);
 
     public ArrayList<BookDTO> getAllBooks() throws SQLException, ClassNotFoundException {

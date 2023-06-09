@@ -1,5 +1,6 @@
 package lk.ijse.finalProject.bo.custom.impl;
 
+import lk.ijse.finalProject.bo.custom.MemberBO;
 import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.MemberDAO;
 import lk.ijse.finalProject.dao.custom.impl.MemberDAOImpl;
@@ -9,7 +10,7 @@ import lk.ijse.finalProject.dto.MemberDTO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class MemberBOImpl {
+public class MemberBOImpl implements MemberBO {
     MemberDAO memberDAO = DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.MEMBER);
 
     public ArrayList<MemberDTO> getAllMember() throws SQLException {

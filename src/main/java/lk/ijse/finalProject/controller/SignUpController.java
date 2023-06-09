@@ -16,6 +16,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.SignupBO;
+import lk.ijse.finalProject.bo.custom.impl.SalaryBOImpl;
+import lk.ijse.finalProject.bo.custom.impl.SignupBOImpl;
 import lk.ijse.finalProject.dto.UserDTO;
 import lk.ijse.finalProject.model.UserModel;
 
@@ -45,6 +49,8 @@ public class SignUpController {
     @FXML
     private JFXButton btn2;
 
+    SignupBO signupBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.SIGNUP_BO);
+
     @FXML
     private Stage stage;
     private Scene scene;
@@ -62,7 +68,7 @@ public class SignUpController {
         userDTO.setEmail(EmailText.getText());
 
         try {
-            boolean isSingUp = UserModel.SingUp(userDTO);
+            boolean isSingUp = signupBO.saveUser(userDTO);
 
             if (isSingUp) {
                 new Alert(Alert.AlertType.CONFIRMATION, "saved").show();

@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.FineBO;
 import lk.ijse.finalProject.bo.custom.impl.FineBOImpl;
 import lk.ijse.finalProject.dto.FineDTO;
 import lk.ijse.finalProject.view.tdm.FineTM;
@@ -73,7 +74,7 @@ public class FineFormController implements Initializable {
     @FXML
     private TextField txtId;
 
-    FineBOImpl fineBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.FINE_BO);
+    FineBO fineBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.FINE_BO);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

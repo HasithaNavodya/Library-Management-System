@@ -19,6 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.DonatorBO;
 import lk.ijse.finalProject.bo.custom.impl.DonatorBOImpl;
 import lk.ijse.finalProject.dto.DonatorDTO;
 import lk.ijse.finalProject.view.tdm.DonatorTM;
@@ -77,7 +78,7 @@ public class DonatorFormController {
     @FXML
     private Button btnBack;
 
-    DonatorBOImpl donatorBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.DONATOR_BO);
+    DonatorBO donatorBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.DONATOR_BO);
 
     @FXML
     void initialize() throws SQLException {
@@ -146,7 +147,7 @@ public class DonatorFormController {
         donator.setDate(txtDate.getText());
 
         try {
-            boolean isSaved = donatorBO.save(donator);
+            boolean isSaved = donatorBO.saveDonator(donator);
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION,"Saved").show();
                 setCellValueFactory();
@@ -185,7 +186,7 @@ public class DonatorFormController {
 
 
             try {
-                boolean isDeleted = DonatorModel.delete(donatorId);
+                boolean isDeleted = donatorBO.deleteDonator(donatorId);
                 if (isDeleted) {
                     AlertController.confirmmessage("Delete Successful");
                     setCellValueFactory();
@@ -225,7 +226,7 @@ public class DonatorFormController {
         if (result == true) {
 
             try {
-                boolean isUpdates = DonatorModel.update(donator);
+                boolean isUpdates = donatorBO.updateDonator(donator);
                 if (isUpdates) {
                    // AlertController.confirmmessage("Update Ok");
                     new Alert(Alert.AlertType.CONFIRMATION,"Updated").show();

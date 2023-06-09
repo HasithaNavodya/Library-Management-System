@@ -8,14 +8,12 @@ import java.util.ArrayList;
 
 public interface BookBO extends SuperBO {
 
-    ArrayList<BookDTO> getAllBooks() throws SQLException, ClassNotFoundException;
+    public ArrayList<BookDTO> getAllBooks() throws SQLException, ClassNotFoundException;
+    public boolean saveBook(BookDTO bookDTO) throws SQLException;
 
-    boolean saveBook(BookDTO dto) throws SQLException, ClassNotFoundException;
+    public boolean deleteBook(String book_id) throws SQLException;
 
-    boolean updateBook(BookDTO dto) throws SQLException, ClassNotFoundException;
+    public boolean updateBook(BookDTO bookDTO) throws SQLException;
 
-    boolean deleteBook(String id) throws SQLException, ClassNotFoundException;
-
-    String generateNewBookID() throws SQLException, ClassNotFoundException;
-
+    public String getNextBookId() throws SQLException;
 }

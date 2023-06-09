@@ -1,5 +1,6 @@
 package lk.ijse.finalProject.bo.custom.impl;
 
+import lk.ijse.finalProject.bo.custom.InventoryBO;
 import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.InventoryDAO;
 import lk.ijse.finalProject.dao.custom.impl.InventoryDAOImpl;
@@ -8,7 +9,7 @@ import lk.ijse.finalProject.dto.InventoryDTO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class InventoryBOImpl {
+public class InventoryBOImpl implements InventoryBO {
     InventoryDAO inventoryDAO = DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.INVENTORY);
 
 

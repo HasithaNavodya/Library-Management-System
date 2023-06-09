@@ -39,21 +39,17 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean update(UserDTO userDTO) throws SQLException {
-        return SQLUtil.execute("UPDATE user SET password=?, email=?,  WHERE username=?", userDTO.getPassword(), userDTO.getEmail(),userDTO.getUserName());
-    }
+    public boolean update(UserDTO logingCont) throws SQLException {
+        ResultSet execute = SQLUtil.execute("SELECT * From user WHERE userName=? AND password =?", logingCont.getUserName(), logingCont.getPassword());
+        if (execute.next()) {
+            return true;
+        } else {
+            return false;
+        }    }
 
     @Override
     public String getNextId() throws SQLException {
         throw new UnsupportedOperationException("This feature yet to be developed");
     }
 
-
-    public  boolean SingUp(UserDTO user) throws SQLException {
-        return SQLUtil.execute("INSERT INTO user(userName,password,email), VALUES (?,?,?)", user.getUserName(), user.getPassword(), user.getEmail());
-    }
-
-    public  boolean LoginAction(UserDTO logingCont) throws SQLException {
-        return SQLUtil.execute("SELECT * From user WHERE userName=? AND password =?", logingCont.getUserName(), logingCont.getPassword());
-    }
 }

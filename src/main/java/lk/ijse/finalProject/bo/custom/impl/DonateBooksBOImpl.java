@@ -1,5 +1,6 @@
 package lk.ijse.finalProject.bo.custom.impl;
 
+import lk.ijse.finalProject.bo.custom.DonateBooksBO;
 import lk.ijse.finalProject.dao.custom.BookDAO;
 import lk.ijse.finalProject.dao.custom.DonateBooksDAO;
 import lk.ijse.finalProject.dao.custom.DonatorDAO;
@@ -17,7 +18,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-public class DonateBooksBOImpl {
+public class DonateBooksBOImpl implements DonateBooksBO {
 
 
     DonateBooksDAO donateBooksDAO = new DonateBooksDAOImpl();

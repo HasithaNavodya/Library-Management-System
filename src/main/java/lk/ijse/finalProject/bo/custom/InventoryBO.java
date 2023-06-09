@@ -2,19 +2,20 @@ package lk.ijse.finalProject.bo.custom;
 
 import lk.ijse.finalProject.bo.SuperBO;
 import lk.ijse.finalProject.dto.FineDTO;
+import lk.ijse.finalProject.dto.InventoryDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface InventoryBO extends SuperBO {
 
-    ArrayList<FineDTO> getAllItem() throws SQLException, ClassNotFoundException;
+    public ArrayList<InventoryDTO> getAllItem() throws SQLException;
 
-    boolean saveItem(FineDTO dto) throws SQLException, ClassNotFoundException;
+    public boolean saveItem(InventoryDTO inventoryDTO) throws SQLException;
 
-    boolean updateItem(FineDTO dto) throws SQLException, ClassNotFoundException;
+    public boolean deleteItem(String Item_id) throws SQLException;
 
-    boolean deleteItem(String id) throws SQLException, ClassNotFoundException;
+    public boolean updateItem(InventoryDTO inventoryDTO) throws SQLException;
 
-    String generateNewItemID() throws SQLException, ClassNotFoundException;
+    public String getNextItemId() throws SQLException;
 }

@@ -9,7 +9,10 @@ import java.util.List;
 public interface DonateBooksBO extends SuperBO {
 
     public String getNextDonationId() throws SQLException;
-    public List<String> getNextBookId() throws SQLException;
-    public List<String> loadDonatorIds() throws SQLException;
-    public boolean placeDonation(DonateBooksDTO dto) throws SQLException;
+
+    public String getNextBookId() throws SQLException;
+
+    public  List<String> loadDonatorIds() throws SQLException;
+
+    public  boolean placeDonation(DonateBooksDTO dto) throws SQLException;
 }

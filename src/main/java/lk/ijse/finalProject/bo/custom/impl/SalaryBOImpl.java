@@ -1,5 +1,6 @@
 package lk.ijse.finalProject.bo.custom.impl;
 
+import lk.ijse.finalProject.bo.custom.SalaryBO;
 import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.SalaryDAO;
 import lk.ijse.finalProject.dao.custom.impl.SalaryDAOImpl;
@@ -9,7 +10,7 @@ import lk.ijse.finalProject.dto.SalaryDTO;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class SalaryBOImpl {
+public class SalaryBOImpl implements SalaryBO {
     SalaryDAO salaryDAO = DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.SALARY);
 
     public ArrayList<SalaryDTO> getAllSalary() throws SQLException {

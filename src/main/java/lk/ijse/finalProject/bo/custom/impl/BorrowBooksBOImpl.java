@@ -1,5 +1,6 @@
 package lk.ijse.finalProject.bo.custom.impl;
 
+import lk.ijse.finalProject.bo.custom.BorrowBooksBO;
 import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.BookDAO;
 import lk.ijse.finalProject.dao.custom.BorrowBooksDAO;
@@ -19,7 +20,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BorrowBooksBOImpl {
+public class BorrowBooksBOImpl implements BorrowBooksBO {
     BorrowBooksDAO borrowBooksDAO = new BorrowBooksDAOImpl();
     MemberDAO memberDAO = new MemberDAOImpl();
     BookDAO bookDAO = new BookDAOImpl();

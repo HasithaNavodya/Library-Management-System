@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
+import lk.ijse.finalProject.bo.custom.SalaryBO;
 import lk.ijse.finalProject.bo.custom.impl.SalaryBOImpl;
 import lk.ijse.finalProject.dao.custom.SalaryDAO;
 import lk.ijse.finalProject.dao.custom.impl.SalaryDAOImpl;
@@ -75,7 +76,7 @@ public class SalaryFormController implements Initializable {
     @FXML
     private TextField txtId;
 
-    SalaryBOImpl salaryBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.SALARY_BO);
+    SalaryBO salaryBO = BoFactory.getBoFactory().getBO(BoFactory.BOTypes.SALARY_BO);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

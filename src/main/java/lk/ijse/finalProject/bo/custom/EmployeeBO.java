@@ -9,13 +9,13 @@ import java.util.ArrayList;
 
 public interface EmployeeBO  extends SuperBO {
 
-    ArrayList<EmployeeDTO> getAllEmployee() throws SQLException, ClassNotFoundException;
+    public ArrayList<EmployeeDTO> getAllEmployee() throws SQLException;
 
-    boolean saveEmployee(EmployeeDTO dto) throws SQLException, ClassNotFoundException;
+    public boolean saveEmployee(EmployeeDTO employeeDTO) throws SQLException;
 
-    boolean updateEmployee(EmployeeDTO dto) throws SQLException, ClassNotFoundException;
+    public boolean deleteEmployee(String employee_id) throws SQLException;
 
-    boolean deleteEmployee(String id) throws SQLException, ClassNotFoundException;
+    public boolean updateEmployee(EmployeeDTO employeeDTO) throws SQLException;
 
-    String generateNewEmployeeID() throws SQLException, ClassNotFoundException;
+    public String getNextEmployeeId() throws SQLException;
 }
