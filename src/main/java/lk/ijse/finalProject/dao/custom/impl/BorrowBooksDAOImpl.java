@@ -32,7 +32,8 @@ public class BorrowBooksDAOImpl implements BorrowBooksDAO {
 
     @Override
     public boolean save(BorrowBooks book) throws SQLException {
-        return SQLUtil.execute("INSERT INTO borrow_books(issue_id,member_id,book_id,due_date)" + "VALUES(?, ?, ?,?)", book.getIssue_id(),book.getMember_id(),book.getBook_id(),book.getDate());
+        return SQLUtil.execute("INSERT INTO borrow_books(issue_id,member_id,book_id,due_date)" + "VALUES(?, ?, ?,?)",
+                                    book.getIssue_id(),book.getMember_id(),book.getBook_id(),book.getDue_date());
     }
 
     @Override

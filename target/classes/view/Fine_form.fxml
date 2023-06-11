@@ -16,10 +16,10 @@
    <children>
       <ImageView fitHeight="768.0" fitWidth="1366.0">
          <image>
-            <Image url="@../img/17581851_v960-ning-31.jpg" />
+            <Image url="@../assets/img/17581851_v960-ning-31.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtDate" layoutX="406.0" layoutY="494.0" onKeyTyped="#txtValiDate" prefHeight="49.0" prefWidth="241.0" promptText="Date">
+      <TextField fx:id="txtDate" layoutX="406.0" layoutY="494.0" onKeyTyped="#txtValiDate" prefHeight="49.0" prefWidth="241.0" promptText="yyyy-mm-dd">
          <font>
             <Font size="14.0" />
          </font>

@@ -4,7 +4,207 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b06ff90-67fc-4058-b0bf-33443a1250ec" name="Default Changelist" comment="" />
+    <list default="true" id="5b06ff90-67fc-4058-b0bf-33443a1250ec" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/BorrowBooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/BorrowBooksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/DonateBooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/DonateBooksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/HomePageFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/HomePageFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/BorrowBooksDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/BorrowBooksDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/entity/BorrowBooks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/entity/BorrowBooks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/17581851_v960-ning-31.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/17581851_v960-ning-31.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/3956797_22968.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/3956797_22968.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/5e5fcd2efe9b4eb3bbaace2a02b29185.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/5e5fcd2efe9b4eb3bbaace2a02b29185.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/Donator.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/Donator.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/Inventory.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/Inventory.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/SingIN.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/SingIN.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/WHAT-IS-THE-PURPOSE-OF-A-LIBRARY-MANAGEMENT-SYSTEM-min.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/WHAT-IS-THE-PURPOSE-OF-A-LIBRARY-MANAGEMENT-SYSTEM-min.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/WhatsApp Image 2023-04-03 at 23.06.16.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/WhatsApp Image 2023-04-03 at 23.06.16.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/b43d438638e2ed51d1f19dad2a4eb24d.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/b43d438638e2ed51d1f19dad2a4eb24d.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/bluebackground.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/bluebackground.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/book.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/book.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/employee.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/employee.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/fine.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/fine.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/homePage.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/homePage.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/homepage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/homepage.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-add-new-50.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-add-new-50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-back-100.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-back-100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-back-arrow-50.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-back-arrow-50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-checkmark.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-checkmark.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-circular-arrow-pointing-to-left-48.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-circular-arrow-pointing-to-left-48.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-date-24.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-date-24.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-default-32.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-default-32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-delete-key-50.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-delete-key-50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-employee-100.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-employee-100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-employee-64.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-employee-64.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-exhibitor-100.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-exhibitor-100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-giving-100.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-giving-100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-giving-48.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-giving-48.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-giving-50.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-giving-50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-home-page-100.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-home-page-100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-home-page-30.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-home-page-30.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-issue-58.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-issue-58.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-knowledge-sharing-100.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-knowledge-sharing-100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-manager-80.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-manager-80.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-member-100.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-member-100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-member-32.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-member-32.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-money-transfer-50.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-money-transfer-50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-money-yours-30.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-money-yours-30.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-open-book-50.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-open-book-50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-password-key-24.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-password-key-24.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-pay-money-70.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-pay-money-70.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-police-fine-100.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-police-fine-100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-reading-90.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-reading-90.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-report-file-64.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-report-file-64.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-stack-of-money-96.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-stack-of-money-96.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-student-center-30.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-student-center-30.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-time-100.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-time-100.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-update-50.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-update-50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-user-50.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-user-50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/icons8-wordbook-50.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/icons8-wordbook-50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/images.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/images.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/images.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/images.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/item.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/item.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/login.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/login.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/login.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/login.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/member.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/member.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/owl-login-form-replica-from-readme-io_.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/owl-login-form-replica-from-readme-io_.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/png-clipart-digital-library-book-integrated-library-system-information-book-emblem-logo-thumbnail.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/png-clipart-digital-library-book-integrated-library-system-information-book-emblem-logo-thumbnail.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/salary.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/salary.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/sgdfg.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/sgdfg.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/singup.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/singup.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/tick.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/tick.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/tumblr_mjkpbqzcoG1rwt4mfo1_500.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/tumblr_mjkpbqzcoG1rwt4mfo1_500.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/undraw_Bookshelves_re_lxoy.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/undraw_Bookshelves_re_lxoy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/undraw_Done_checking_re_6vyx.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/undraw_Done_checking_re_6vyx.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/undraw_Gifts_0ceh.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/undraw_Gifts_0ceh.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/undraw_Personal_notebook_re_d7dc.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/undraw_Personal_notebook_re_d7dc.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/undraw_Selecting_team_re_ndkb.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/undraw_Selecting_team_re_ndkb.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/undraw_Success_factors_re_ce93.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/undraw_Success_factors_re_ce93.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/undraw_Throw_away_re_x60k.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/undraw_Throw_away_re_x60k.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/undraw_printing_invoices_5r4r.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/undraw_printing_invoices_5r4r.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/undraw_secure_login_pdn4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/undraw_secure_login_pdn4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/undraw_sharing_knowledge_03vp.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/undraw_sharing_knowledge_03vp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/working-gif-52650-120754.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/working-gif-52650-120754.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/img/wrongicon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/img/wrongicon.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/[PATH_TO_DB_FILES]/database.lck" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/reports/[PATH_TO_DB_FILES]/database.lck" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/[PATH_TO_DB_FILES]/database.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/reports/[PATH_TO_DB_FILES]/database.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/[PATH_TO_DB_FILES]/database.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/reports/[PATH_TO_DB_FILES]/database.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/[PATH_TO_DB_FILES]/database.script" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/reports/[PATH_TO_DB_FILES]/database.script" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/books_report.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/reports/books_report.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/borrow_books.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/reports/borrow_books.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/reports/donate_books.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/reports/donate_books.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/scema/Library.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/scema/Library.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/style/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Book_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Book_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Borrow_books_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Borrow_books_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Donate_books_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Donate_books_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Donator_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Donator_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Employee_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Employee_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Fine_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Fine_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/HomePage_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/HomePage_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Inventory_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Inventory_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Login_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Login_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Member_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Member_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/Salary_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/Salary_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/SignUp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/17581851_v960-ning-31.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/3956797_22968.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/5e5fcd2efe9b4eb3bbaace2a02b29185.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/Donator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/Inventory.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/SingIN.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/WHAT-IS-THE-PURPOSE-OF-A-LIBRARY-MANAGEMENT-SYSTEM-min.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/WhatsApp Image 2023-04-03 at 23.06.16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/b43d438638e2ed51d1f19dad2a4eb24d.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/bluebackground.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/employee.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/fine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/homePage.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/homepage.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-add-new-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-back-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-back-arrow-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-checkmark.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-circular-arrow-pointing-to-left-48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-date-24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-default-32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-delete-key-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-employee-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-employee-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-exhibitor-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-giving-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-giving-48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-giving-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-home-page-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-home-page-30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-issue-58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-knowledge-sharing-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-manager-80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-member-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-member-32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-money-transfer-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-money-yours-30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-open-book-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-password-key-24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-pay-money-70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-police-fine-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-reading-90.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-report-file-64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-stack-of-money-96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-student-center-30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-time-100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-update-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-user-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/icons8-wordbook-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/images.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/images.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/item.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/login.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/login.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/member.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/owl-login-form-replica-from-readme-io_.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/png-clipart-digital-library-book-integrated-library-system-information-book-emblem-logo-thumbnail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/salary.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/sgdfg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/singup.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/tick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/tumblr_mjkpbqzcoG1rwt4mfo1_500.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/undraw_Bookshelves_re_lxoy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/undraw_Done_checking_re_6vyx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/undraw_Gifts_0ceh.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/undraw_Personal_notebook_re_d7dc.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/undraw_Selecting_team_re_ndkb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/undraw_Success_factors_re_ce93.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/undraw_Throw_away_re_x60k.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/undraw_printing_invoices_5r4r.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/undraw_secure_login_pdn4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/undraw_sharing_knowledge_03vp.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/working-gif-52650-120754.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/img/wrongicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/finalProject/controller/BorrowBooksController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/finalProject/controller/BorrowBooksController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/finalProject/controller/DonateBooksController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/finalProject/controller/DonateBooksController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/finalProject/controller/HomePageFormController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/finalProject/controller/HomePageFormController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/finalProject/dao/custom/impl/BorrowBooksDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/finalProject/dao/custom/impl/BorrowBooksDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/lk/ijse/finalProject/entity/BorrowBooks.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/lk/ijse/finalProject/entity/BorrowBooks.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reports/[PATH_TO_DB_FILES]/database.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reports/[PATH_TO_DB_FILES]/database.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reports/[PATH_TO_DB_FILES]/database.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reports/[PATH_TO_DB_FILES]/database.script" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reports/books_report.jrxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reports/borrow_books.jrxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/reports/donate_books.jrxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/scema/Library.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/style/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/Book_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/Book_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/Borrow_books_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/Borrow_books_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/Donate_books_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/Donate_books_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/Donator_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/Donator_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/HomePage_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/HomePage_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/Salary_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/Salary_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/SignUp.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/view/SignUp.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,6 +245,7 @@
       <recent name="C:\Users\Dulaksha\Videos\Jdbc\app6\BookShop\BookShop\book-shop\src\main\resources\style" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sachith PC\Desktop\Library-Management-System\src\main\resources\assets" />
       <recent name="C:\Users\Dulaksha\Videos\Jdbc\app6\BookShop\BookShop\book-shop\src\main\resources\img" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
@@ -107,7 +308,7 @@
       <workItem from="1685689443501" duration="38048000" />
       <workItem from="1686040815677" duration="18196000" />
       <workItem from="1686127664371" duration="56520000" />
-      <workItem from="1686411613495" duration="12798000" />
+      <workItem from="1686411613495" duration="14368000" />
     </task>
     <servers />
   </component>

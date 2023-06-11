@@ -22,12 +22,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.BorrowBooksBO;
-import lk.ijse.finalProject.bo.custom.impl.BorrowBooksBOImpl;
 import lk.ijse.finalProject.db.DBConnection;
 import lk.ijse.finalProject.dto.BorrowBooksDTO;
 import lk.ijse.finalProject.view.tdm.BorrowBookCartTM;
-import lk.ijse.finalProject.model.BookModel;
-import lk.ijse.finalProject.model.MemberModel;
 import lk.ijse.finalProject.util.AlertController;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -171,7 +168,7 @@ public class BorrowBooksController {
                     boolean result = AlertController.okconfirmmessage("Do you want the bill?");
 
                     if (result) {
-                        InputStream resource = this.getClass().getResourceAsStream("/reports/borrow_books.jrxml");
+                        InputStream resource = this.getClass().getResourceAsStream("/assets/reports/borrow_books.jrxml");
                         try {
                             JasperReport jasperReport = JasperCompileManager.compileReport(resource);
                             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());

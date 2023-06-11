@@ -163,7 +163,7 @@ public class HomePageFormController {
     }
 
     public void btnBookDetailsOnAction(ActionEvent actionEvent) {
-        InputStream resource = this.getClass().getResourceAsStream("/reports/books_report.jrxml");
+        InputStream resource = this.getClass().getResourceAsStream("/assets/reports/books_report.jrxml");
         try {
             JasperReport jasperReport = JasperCompileManager.compileReport(resource);
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());

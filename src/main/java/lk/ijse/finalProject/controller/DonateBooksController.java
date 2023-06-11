@@ -14,13 +14,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.DonateBooksBO;
-import lk.ijse.finalProject.bo.custom.impl.DonateBooksBOImpl;
 import lk.ijse.finalProject.db.DBConnection;
 import lk.ijse.finalProject.dto.DonateBooksDTO;
 import lk.ijse.finalProject.view.tdm.DonateBookCartTM;
-import lk.ijse.finalProject.model.BookModel;
-import lk.ijse.finalProject.model.DonateBooksModel;
-import lk.ijse.finalProject.model.DonatorModel;
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.ValidateField;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -174,7 +170,7 @@ public class DonateBooksController implements Initializable {
                     boolean result = AlertController.okconfirmmessage("Do you want the bill?");
 
                     if (result) {
-                        InputStream resource = this.getClass().getResourceAsStream("/reports/donate_books.jrxml");
+                        InputStream resource = this.getClass().getResourceAsStream("/assets/reports/donate_books.jrxml");
                         try {
                             JasperReport jasperReport = JasperCompileManager.compileReport(resource);
                             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());

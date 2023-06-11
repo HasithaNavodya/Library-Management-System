@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="768.0" fitWidth="1366.0">
          <image>
-            <Image url="@../img/17581851_v960-ning-31.jpg" />
+            <Image url="@../assets/img/17581851_v960-ning-31.jpg" />
          </image>
       </ImageView>
       <Button fx:id="btnBack" layoutX="107.0" layoutY="68.0" mnemonicParsing="false" onAction="#btnBackOnAction" prefHeight="23.0" prefWidth="85.0" style="-fx-background-color: black; -fx-background-radius: 25; -fx-border-radius: 25;" text="Back" textFill="WHITE">

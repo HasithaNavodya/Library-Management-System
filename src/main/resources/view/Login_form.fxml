@@ -14,7 +14,7 @@
    <children>
       <ImageView fitHeight="707.0" fitWidth="1229.0" layoutY="1.0">
          <image>
-            <Image url="@../img/homePage.jpg" />
+            <Image url="@../assets/img/homePage.jpg" />
          </image>
       </ImageView>
       <TextField fx:id="txtUsername" layoutX="449.0" layoutY="184.0" prefHeight="39.0" prefWidth="299.0" promptText="User Name" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: black;">
