@@ -1,6 +1,6 @@
 package lk.ijse.finalProject.bo.custom;
 
-import lk.ijse.finalProject.dto.UserDTO;
+import lk.ijse.finalProject.model.UserDTO;
 
 import java.sql.SQLException;
 

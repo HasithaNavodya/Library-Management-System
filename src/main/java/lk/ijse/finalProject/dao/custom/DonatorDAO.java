@@ -2,7 +2,6 @@ package lk.ijse.finalProject.dao.custom;
 
 import lk.ijse.finalProject.dao.CrudDAO;
 
-import lk.ijse.finalProject.dto.DonatorDTO;
 import lk.ijse.finalProject.entity.Donator;
 
 import java.sql.SQLException;

@@ -3,10 +3,7 @@ package lk.ijse.finalProject.bo.custom.impl;
 import lk.ijse.finalProject.bo.custom.EmployeeBO;
 import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.EmployeeDAO;
-import lk.ijse.finalProject.dao.custom.impl.EmployeeDAOImpl;
-import lk.ijse.finalProject.dto.DonatorDTO;
-import lk.ijse.finalProject.dto.EmployeeDTO;
-import lk.ijse.finalProject.entity.Donator;
+import lk.ijse.finalProject.model.EmployeeDTO;
 import lk.ijse.finalProject.entity.Employee;
 
 import java.sql.SQLException;

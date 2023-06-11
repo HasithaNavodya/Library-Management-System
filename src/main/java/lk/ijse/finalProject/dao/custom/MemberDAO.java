@@ -1,7 +1,6 @@
 package lk.ijse.finalProject.dao.custom;
 
 import lk.ijse.finalProject.dao.CrudDAO;
-import lk.ijse.finalProject.dto.MemberDTO;
 import lk.ijse.finalProject.entity.Member;
 
 import java.sql.SQLException;

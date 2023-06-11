@@ -1,7 +1,6 @@
 package lk.ijse.finalProject.dao.custom.impl;
 
 import lk.ijse.finalProject.dao.custom.DonatorDAO;
-import lk.ijse.finalProject.dto.DonatorDTO;
 import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 import lk.ijse.finalProject.entity.Donator;
 

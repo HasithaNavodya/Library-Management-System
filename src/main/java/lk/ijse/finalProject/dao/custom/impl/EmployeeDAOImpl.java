@@ -1,7 +1,6 @@
 package lk.ijse.finalProject.dao.custom.impl;
 
 import lk.ijse.finalProject.dao.custom.EmployeeDAO;
-import lk.ijse.finalProject.dto.EmployeeDTO;
 import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 import lk.ijse.finalProject.entity.Employee;
 

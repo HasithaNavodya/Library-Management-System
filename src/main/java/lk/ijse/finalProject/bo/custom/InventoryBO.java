@@ -1,8 +1,7 @@
 package lk.ijse.finalProject.bo.custom;
 
 import lk.ijse.finalProject.bo.SuperBO;
-import lk.ijse.finalProject.dto.FineDTO;
-import lk.ijse.finalProject.dto.InventoryDTO;
+import lk.ijse.finalProject.model.InventoryDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

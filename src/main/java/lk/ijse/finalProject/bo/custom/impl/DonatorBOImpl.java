@@ -3,9 +3,7 @@ package lk.ijse.finalProject.bo.custom.impl;
 import lk.ijse.finalProject.bo.custom.DonatorBO;
 import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.DonatorDAO;
-import lk.ijse.finalProject.dto.BookDTO;
-import lk.ijse.finalProject.dto.DonatorDTO;
-import lk.ijse.finalProject.entity.Book;
+import lk.ijse.finalProject.model.DonatorDTO;
 import lk.ijse.finalProject.entity.Donator;
 
 import java.sql.SQLException;

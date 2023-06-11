@@ -1,7 +1,7 @@
 package lk.ijse.finalProject.bo.custom;
 
 import lk.ijse.finalProject.bo.SuperBO;
-import lk.ijse.finalProject.dto.MemberDTO;
+import lk.ijse.finalProject.model.MemberDTO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

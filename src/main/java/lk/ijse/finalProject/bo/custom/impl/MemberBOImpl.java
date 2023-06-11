@@ -3,10 +3,7 @@ package lk.ijse.finalProject.bo.custom.impl;
 import lk.ijse.finalProject.bo.custom.MemberBO;
 import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.MemberDAO;
-import lk.ijse.finalProject.dao.custom.impl.MemberDAOImpl;
-import lk.ijse.finalProject.dto.InventoryDTO;
-import lk.ijse.finalProject.dto.MemberDTO;
-import lk.ijse.finalProject.entity.Inventory;
+import lk.ijse.finalProject.model.MemberDTO;
 import lk.ijse.finalProject.entity.Member;
 
 import java.sql.SQLException;

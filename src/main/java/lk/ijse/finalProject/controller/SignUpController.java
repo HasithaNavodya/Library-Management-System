@@ -18,9 +18,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.SignupBO;
-import lk.ijse.finalProject.bo.custom.impl.SalaryBOImpl;
-import lk.ijse.finalProject.bo.custom.impl.SignupBOImpl;
-import lk.ijse.finalProject.dto.UserDTO;
+import lk.ijse.finalProject.model.UserDTO;
 import lk.ijse.finalProject.model.UserModel;
 
 public class SignUpController {

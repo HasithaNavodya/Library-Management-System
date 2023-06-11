@@ -1,6 +1,5 @@
 package lk.ijse.finalProject.controller;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,8 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.MemberBO;
-import lk.ijse.finalProject.bo.custom.impl.MemberBOImpl;
-import lk.ijse.finalProject.dto.MemberDTO;
+import lk.ijse.finalProject.model.MemberDTO;
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
 import lk.ijse.finalProject.view.tdm.MemberTM;

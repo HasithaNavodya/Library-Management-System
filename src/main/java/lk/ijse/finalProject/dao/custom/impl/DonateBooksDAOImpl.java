@@ -2,8 +2,6 @@ package lk.ijse.finalProject.dao.custom.impl;
 
 import lk.ijse.finalProject.dao.custom.DonateBooksDAO;
 import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
-import lk.ijse.finalProject.dto.BorrowBooksDTO;
-import lk.ijse.finalProject.dto.DonateBooksDTO;
 import lk.ijse.finalProject.entity.DonateBooks;
 
 import java.sql.ResultSet;

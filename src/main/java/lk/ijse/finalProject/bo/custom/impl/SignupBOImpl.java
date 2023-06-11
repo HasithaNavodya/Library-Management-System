@@ -3,7 +3,7 @@ package lk.ijse.finalProject.bo.custom.impl;
 import lk.ijse.finalProject.bo.custom.SignupBO;
 import lk.ijse.finalProject.dao.custom.UserDAO;
 import lk.ijse.finalProject.dao.custom.impl.UserDAOImpl;
-import lk.ijse.finalProject.dto.UserDTO;
+import lk.ijse.finalProject.model.UserDTO;
 import lk.ijse.finalProject.entity.User;
 
 import java.sql.SQLException;

@@ -16,8 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.LoginBO;
-import lk.ijse.finalProject.bo.custom.impl.LoginBOImpl;
-import lk.ijse.finalProject.dto.UserDTO;
+import lk.ijse.finalProject.model.UserDTO;
 import lk.ijse.finalProject.model.UserModel;
 import lk.ijse.finalProject.util.AlertController;
 

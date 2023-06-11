@@ -2,11 +2,8 @@ package lk.ijse.finalProject.dao.custom.impl;
 
 import lk.ijse.finalProject.dao.custom.UserDAO;
 import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
-import lk.ijse.finalProject.db.DBConnection;
-import lk.ijse.finalProject.dto.UserDTO;
 import lk.ijse.finalProject.entity.User;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;

@@ -1,5 +1,4 @@
-package lk.ijse.finalProject.dto;
-import javafx.scene.control.Button;
+package lk.ijse.finalProject.model;
 import lombok.*;
 
 import java.util.List;

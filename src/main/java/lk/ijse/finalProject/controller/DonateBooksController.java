@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.DonateBooksBO;
 import lk.ijse.finalProject.db.DBConnection;
-import lk.ijse.finalProject.dto.DonateBooksDTO;
+import lk.ijse.finalProject.model.DonateBooksDTO;
 import lk.ijse.finalProject.view.tdm.DonateBookCartTM;
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.ValidateField;

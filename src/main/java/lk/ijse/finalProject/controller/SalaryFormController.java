@@ -14,16 +14,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.SalaryBO;
-import lk.ijse.finalProject.bo.custom.impl.SalaryBOImpl;
-import lk.ijse.finalProject.dao.custom.SalaryDAO;
-import lk.ijse.finalProject.dao.custom.impl.SalaryDAOImpl;
-import lk.ijse.finalProject.dto.BookDTO;
-import lk.ijse.finalProject.dto.SalaryDTO;
-import lk.ijse.finalProject.entity.Salary;
+import lk.ijse.finalProject.model.SalaryDTO;
 import lk.ijse.finalProject.model.SalaryModel;
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
-import lk.ijse.finalProject.view.tdm.BookTM;
 import lk.ijse.finalProject.view.tdm.SalaryTM;
 
 import java.io.IOException;

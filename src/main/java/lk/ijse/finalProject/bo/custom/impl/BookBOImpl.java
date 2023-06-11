@@ -3,15 +3,11 @@ package lk.ijse.finalProject.bo.custom.impl;
 import lk.ijse.finalProject.bo.custom.BookBO;
 import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.BookDAO;
-import lk.ijse.finalProject.dao.custom.impl.BookDAOImpl;
-import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
-import lk.ijse.finalProject.dto.BookDTO;
+import lk.ijse.finalProject.model.BookDTO;
 import lk.ijse.finalProject.entity.Book;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class BookBOImpl implements BookBO {
     BookDAO bookDAO = DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.BOOK);

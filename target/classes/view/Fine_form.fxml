@@ -19,7 +19,7 @@
             <Image url="@../assets/img/17581851_v960-ning-31.jpg" />
          </image>
       </ImageView>
-      <TextField fx:id="txtDate" layoutX="406.0" layoutY="494.0" onKeyTyped="#txtValiDate" prefHeight="49.0" prefWidth="241.0" promptText="yyyy-mm-dd">
+      <TextField fx:id="txtDate" layoutX="406.0" layoutY="494.0" onKeyTyped="#txtValiDate" prefHeight="49.0" prefWidth="241.0" promptText="YYYY-MM-DD">
          <font>
             <Font size="14.0" />
          </font>

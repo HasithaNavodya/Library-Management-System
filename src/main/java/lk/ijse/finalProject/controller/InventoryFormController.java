@@ -15,10 +15,7 @@ import javafx.stage.Stage;
 
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.InventoryBO;
-import lk.ijse.finalProject.bo.custom.impl.InventoryBOImpl;
-import lk.ijse.finalProject.dto.FineDTO;
-import lk.ijse.finalProject.dto.InventoryDTO;
-import lk.ijse.finalProject.view.tdm.FineTM;
+import lk.ijse.finalProject.model.InventoryDTO;
 import lk.ijse.finalProject.view.tdm.InventoryTM;
 import lk.ijse.finalProject.model.InventoryModel;
 import lk.ijse.finalProject.util.AlertController;
