@@ -3,6 +3,7 @@ package lk.ijse.finalProject.dao.custom.impl;
 import lk.ijse.finalProject.dao.custom.FineDAO;
 import lk.ijse.finalProject.dto.FineDTO;
 import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
+import lk.ijse.finalProject.entity.Fine;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,14 +12,14 @@ import java.util.ArrayList;
 public class FineDAOImpl implements FineDAO {
 
     @Override
-    public ArrayList<FineDTO> getAll() throws SQLException {
+    public ArrayList<Fine> getAll() throws SQLException {
         String sql = "SELECT * FROM fines";
 
-        ArrayList<FineDTO> allFine = new ArrayList<>();
+        ArrayList<Fine> allFine = new ArrayList<>();
 
         ResultSet resultSet = SQLUtil.execute(sql);
         while (resultSet.next()) {
-            allFine.add(new FineDTO(
+            allFine.add(new Fine(
                     resultSet.getString(1),
                     resultSet.getDouble(2),
                     resultSet.getString(3),
@@ -30,7 +31,7 @@ public class FineDAOImpl implements FineDAO {
     }
 
     @Override
-    public boolean save(FineDTO fine) throws SQLException {
+    public boolean save(Fine fine) throws SQLException {
         //return SQLUtil.execute("INSERT INTO fines (fine_id,amount,date,description,member_id) VALUES (?,?,?,?,?)", fineDTO.getFine_id(),fineDTO.getAmount(),fineDTO.getDate(),fineDTO.getDescription(),fineDTO.getMember_id());
         String sql ="INSERT  INTO fines Values(?,?,?,?,?)";
         return SQLUtil.execute(sql,
@@ -48,8 +49,8 @@ public class FineDAOImpl implements FineDAO {
     }
 
     @Override
-    public boolean update(FineDTO fineDTO) throws SQLException {
-        return SQLUtil.execute("UPDATE fines SET amount=?, date=?, description=?, member_id=? WHERE fine_id=?", fineDTO.getAmount(), fineDTO.getDate(), fineDTO.getDescription(), fineDTO.getMember_id(),fineDTO.getFine_id());
+    public boolean update(Fine fine) throws SQLException {
+        return SQLUtil.execute("UPDATE fines SET amount=?, date=?, description=?, member_id=? WHERE fine_id=?", fine.getAmount(), fine.getDate(), fine.getDescription(), fine.getMember_id(),fine.getFine_id());
     }
 
     @Override

@@ -3,6 +3,7 @@ package lk.ijse.finalProject.dao.custom.impl;
 import lk.ijse.finalProject.dao.custom.DonatorDAO;
 import lk.ijse.finalProject.dto.DonatorDTO;
 import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
+import lk.ijse.finalProject.entity.Donator;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,14 +13,14 @@ import java.util.List;
 public class DonatorDAOImpl implements DonatorDAO {
 
     @Override
-    public ArrayList<DonatorDTO> getAll() throws SQLException {
+    public ArrayList<Donator> getAll() throws SQLException {
         String sql = "SELECT * FROM donators";
 
-        ArrayList<DonatorDTO> allDonator = new ArrayList<>();
+        ArrayList<Donator> allDonator = new ArrayList<>();
 
         ResultSet resultSet = SQLUtil.execute(sql);
         while (resultSet.next()) {
-            allDonator.add(new DonatorDTO(
+            allDonator.add(new Donator(
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getString(3),
@@ -31,8 +32,8 @@ public class DonatorDAOImpl implements DonatorDAO {
     }
 
     @Override
-    public boolean save(DonatorDTO donatorDTO) throws SQLException {
-        return SQLUtil.execute("INSERT INTO donators (donator_id,name,contact,date,username) VALUES (?,?,?,?,?)", donatorDTO.getDonator_id(),donatorDTO.getName(),donatorDTO.getContact(),donatorDTO.getDate(),donatorDTO.getUsername());
+    public boolean save(Donator donator) throws SQLException {
+        return SQLUtil.execute("INSERT INTO donators (donator_id,name,contact,date,username) VALUES (?,?,?,?,?)", donator.getDonator_id(),donator.getName(),donator.getContact(),donator.getDate(),donator.getUsername());
     }
 
     @Override
@@ -41,8 +42,8 @@ public class DonatorDAOImpl implements DonatorDAO {
     }
 
     @Override
-    public boolean update(DonatorDTO donatorDTO) throws SQLException {
-        return SQLUtil.execute("UPDATE donators SET name=?, contact=?, date=?, username=? WHERE donator_id=?", donatorDTO.getName(), donatorDTO.getContact(), donatorDTO.getDate(),donatorDTO.getUsername(),donatorDTO.getDonator_id());
+    public boolean update(Donator donator) throws SQLException {
+        return SQLUtil.execute("UPDATE donators SET name=?, contact=?, date=?, username=? WHERE donator_id=?", donator.getName(), donator.getContact(), donator.getDate(),donator.getUsername(),donator.getDonator_id());
     }
 
     @Override

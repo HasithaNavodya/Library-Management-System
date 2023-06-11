@@ -12,5 +12,5 @@ public class Employee {
     private String employee_name;
     private String status;
     private String address;
-    private String contact;
+    private String contact_no;
 }

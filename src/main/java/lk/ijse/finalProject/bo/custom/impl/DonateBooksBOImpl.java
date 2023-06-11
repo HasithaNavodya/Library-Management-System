@@ -12,6 +12,8 @@ import lk.ijse.finalProject.db.DBConnection;
 import lk.ijse.finalProject.dto.BookDTO;
 import lk.ijse.finalProject.dto.BorrowBooksDTO;
 import lk.ijse.finalProject.dto.DonateBooksDTO;
+import lk.ijse.finalProject.entity.Book;
+import lk.ijse.finalProject.entity.DonateBooks;
 import lk.ijse.finalProject.model.BookModel;
 
 import java.sql.Connection;
@@ -58,8 +60,9 @@ public class DonateBooksBOImpl implements DonateBooksBO {
 //            return false;
 
             for (DonateBooksDTO d : dto.getDonateBooksList()) {
-                boolean isDonationSaved = donateBooksDAO.save(new DonateBooksDTO(dto.getDonation_id(), dto.getDonator_id(), d.getBook_id()));
-                bookDAO.save(new BookDTO(d.getBook_id(),d.getName(),d.getAuthor(),d.getCategory(),d.getCup_no()));
+                boolean isDonationSaved = donateBooksDAO.save(new DonateBooks(dto.getDonation_id(),
+                                                                              dto.getDonator_id(), d.getBook_id()));
+                bookDAO.save(new Book(d.getBook_id(),d.getName(),d.getAuthor(),d.getCategory(),d.getCup_no()));
             }
             con.commit();
             return true;

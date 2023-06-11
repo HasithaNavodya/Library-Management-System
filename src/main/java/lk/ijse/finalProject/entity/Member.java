@@ -12,6 +12,6 @@ public class Member {
     private String name ;
     private String address;
     private String grade ;
-    private Double fee;
-    private String contact;
+    private Double member_fee;
+    private String contact_no;
 }

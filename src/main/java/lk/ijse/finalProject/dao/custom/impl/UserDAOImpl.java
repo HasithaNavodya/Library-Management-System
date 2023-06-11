@@ -4,6 +4,7 @@ import lk.ijse.finalProject.dao.custom.UserDAO;
 import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 import lk.ijse.finalProject.db.DBConnection;
 import lk.ijse.finalProject.dto.UserDTO;
+import lk.ijse.finalProject.entity.User;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,14 +13,14 @@ import java.util.ArrayList;
 
 public class UserDAOImpl implements UserDAO {
     @Override
-    public ArrayList<UserDTO> getAll() throws SQLException {
+    public ArrayList<User> getAll() throws SQLException {
         String sql = "SELECT * FROM user";
 
-        ArrayList<UserDTO> allUser = new ArrayList<>();
+        ArrayList<User> allUser = new ArrayList<>();
 
         ResultSet resultSet = SQLUtil.execute(sql);
         while (resultSet.next()) {
-            allUser.add(new UserDTO(
+            allUser.add(new User(
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getString(3)
@@ -29,8 +30,9 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean save(UserDTO userDTO) throws SQLException {
-        return SQLUtil.execute("INSERT INTO user (username, password, email) VALUES (?,?,?)", userDTO.getUserName(),userDTO.getPassword(),userDTO.getPassword());
+    public boolean save(User user) throws SQLException {
+        return SQLUtil.execute("INSERT INTO user (username, password, email) VALUES (?,?,?)",
+                                    user.getUserName(),user.getPassword(),user.getPassword());
     }
 
     @Override
@@ -39,8 +41,9 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public boolean update(UserDTO logingCont) throws SQLException {
-        ResultSet execute = SQLUtil.execute("SELECT * From user WHERE userName=? AND password =?", logingCont.getUserName(), logingCont.getPassword());
+    public boolean update(User logingCont) throws SQLException {
+        ResultSet execute = SQLUtil.execute("SELECT * From user WHERE userName=? AND password =?",
+                                                 logingCont.getUserName(), logingCont.getPassword());
         if (execute.next()) {
             return true;
         } else {

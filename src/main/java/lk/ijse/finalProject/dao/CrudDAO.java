@@ -8,11 +8,11 @@ public interface CrudDAO<T, t> extends SuperDAO{
 
       ArrayList<T> getAll() throws SQLException;
      
-     boolean save(T book) throws SQLException;
+     boolean save(T t) throws SQLException;
 
-     boolean delete(String book_id) throws SQLException;
+     boolean delete(String id) throws SQLException;
 
-     boolean update(T book) throws SQLException;
+     boolean update(T t) throws SQLException;
 
      String getNextId() throws SQLException;
 

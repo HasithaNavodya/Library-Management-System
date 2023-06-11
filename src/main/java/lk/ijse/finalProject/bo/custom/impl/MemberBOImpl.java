@@ -6,6 +6,8 @@ import lk.ijse.finalProject.dao.custom.MemberDAO;
 import lk.ijse.finalProject.dao.custom.impl.MemberDAOImpl;
 import lk.ijse.finalProject.dto.InventoryDTO;
 import lk.ijse.finalProject.dto.MemberDTO;
+import lk.ijse.finalProject.entity.Inventory;
+import lk.ijse.finalProject.entity.Member;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,11 +16,25 @@ public class MemberBOImpl implements MemberBO {
     MemberDAO memberDAO = DAOFactory.getDAOFactory().getDAO(DAOFactory.DAOTypes.MEMBER);
 
     public ArrayList<MemberDTO> getAllMember() throws SQLException {
-        return memberDAO.getAll();
-    }
+        ArrayList<Member> allMember = memberDAO.getAll();
+        ArrayList<MemberDTO> arrayList = new ArrayList<>();
+        for (Member m : allMember) {
+            arrayList.add(new MemberDTO(m.getMember_id(),
+                                        m.getName(),
+                                        m.getAddress(),
+                                        m.getGrade(),
+                                        m.getMember_fee(),
+                                        m.getContact_no()));
+        }
+        return arrayList;    }
 
     public boolean saveMember(MemberDTO memberDTO) throws SQLException {
-        return memberDAO.save(memberDTO);
+        return memberDAO.save(new Member(memberDTO.getMember_id(),
+                                         memberDTO.getName(),
+                                         memberDTO.getAddress(),
+                                         memberDTO.getGrade(),
+                                         memberDTO.getMember_fee(),
+                                         memberDTO.getContact_no()));
     }
 
     public boolean deleteMember(String member_id) throws SQLException {
@@ -26,7 +42,12 @@ public class MemberBOImpl implements MemberBO {
     }
 
     public boolean updateMember(MemberDTO memberDTO) throws SQLException {
-        return memberDAO.update(memberDTO);
+        return memberDAO.update(new Member(memberDTO.getMember_id(),
+                                           memberDTO.getName(),
+                                           memberDTO.getAddress(),
+                                           memberDTO.getGrade(),
+                                           memberDTO.getMember_fee(),
+                                           memberDTO.getContact_no()));
     }
 
     public String getNextMemberId() throws SQLException {

@@ -4,6 +4,7 @@ import lk.ijse.finalProject.dao.custom.DonateBooksDAO;
 import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 import lk.ijse.finalProject.dto.BorrowBooksDTO;
 import lk.ijse.finalProject.dto.DonateBooksDTO;
+import lk.ijse.finalProject.entity.DonateBooks;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,14 +12,14 @@ import java.util.ArrayList;
 
 public class DonateBooksDAOImpl implements DonateBooksDAO {
     @Override
-    public ArrayList<DonateBooksDTO> getAll() throws SQLException {
+    public ArrayList<DonateBooks> getAll() throws SQLException {
         String sql = "SELECT * FROM donate_books";
 
-        ArrayList<DonateBooksDTO> allDonateBook = new ArrayList<>();
+        ArrayList<DonateBooks> allDonateBook = new ArrayList<>();
 
         ResultSet resultSet = SQLUtil.execute(sql);
         while (resultSet.next()) {
-            allDonateBook.add(new DonateBooksDTO(
+            allDonateBook.add(new DonateBooks(
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getString(3)
@@ -28,8 +29,8 @@ public class DonateBooksDAOImpl implements DonateBooksDAO {
     }
 
     @Override
-    public boolean save(DonateBooksDTO donateBooksDTO) throws SQLException {
-        return SQLUtil.execute("INSERT INTO book_donation(donation_id,donator_id,book_id) VALUES (?, ?, ?)", donateBooksDTO.getDonation_id(), donateBooksDTO.getDonator_id(), donateBooksDTO.getBook_id());
+    public boolean save(DonateBooks donateBooks) throws SQLException {
+        return SQLUtil.execute("INSERT INTO book_donation(donation_id,donator_id,book_id) VALUES (?, ?, ?)", donateBooks.getDonation_id(), donateBooks.getDonator_id(), donateBooks.getBook_id());
     }
 
     @Override
@@ -38,7 +39,7 @@ public class DonateBooksDAOImpl implements DonateBooksDAO {
     }
 
     @Override
-    public boolean update(DonateBooksDTO donateBooksDTO) throws SQLException {
+    public boolean update(DonateBooks donateBooks) throws SQLException {
         return false;
     }
 

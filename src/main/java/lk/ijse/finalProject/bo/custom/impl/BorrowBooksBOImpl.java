@@ -12,6 +12,7 @@ import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 import lk.ijse.finalProject.db.DBConnection;
 import lk.ijse.finalProject.dto.BorrowBooksDTO;
 import lk.ijse.finalProject.dto.DonatorDTO;
+import lk.ijse.finalProject.entity.BorrowBooks;
 import lk.ijse.finalProject.model.BookModel;
 
 import java.sql.Connection;
@@ -55,7 +56,10 @@ public class BorrowBooksBOImpl implements BorrowBooksBO {
 //                }
 //            }
             for (BorrowBooksDTO borrowBooksDTO : dto.getBorrowBooksList()) {
-                boolean isBookIssuingSaved = borrowBooksDAO.save(new BorrowBooksDTO(borrowBooksDTO.getIssue_id(),dto.getMember_id(),borrowBooksDTO.getBook_id(),dto.getDate()));
+                boolean isBookIssuingSaved = borrowBooksDAO.save(new BorrowBooks(borrowBooksDTO.getIssue_id(),
+                                                                                 dto.getMember_id(),
+                                                                                 borrowBooksDTO.getBook_id(),
+                                                                                 dto.getDate()));
                 bookDAO.delete(borrowBooksDTO.getBook_id());
             }
             con.commit();

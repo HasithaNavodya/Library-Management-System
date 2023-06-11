@@ -4,6 +4,7 @@ import lk.ijse.finalProject.dao.custom.BorrowBooksDAO;
 import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 import lk.ijse.finalProject.dto.BorrowBooksDTO;
 import lk.ijse.finalProject.dto.DonatorDTO;
+import lk.ijse.finalProject.entity.BorrowBooks;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,14 +13,14 @@ import java.util.ArrayList;
 public class BorrowBooksDAOImpl implements BorrowBooksDAO {
 
     @Override
-    public ArrayList<BorrowBooksDTO> getAll() throws SQLException {
+    public ArrayList<BorrowBooks> getAll() throws SQLException {
         String sql = "SELECT * FROM borrow_books";
 
-        ArrayList<BorrowBooksDTO> allIssueBook = new ArrayList<>();
+        ArrayList<BorrowBooks> allIssueBook = new ArrayList<>();
 
         ResultSet resultSet = SQLUtil.execute(sql);
         while (resultSet.next()) {
-            allIssueBook.add(new BorrowBooksDTO(
+            allIssueBook.add(new BorrowBooks(
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getString(3),
@@ -30,7 +31,7 @@ public class BorrowBooksDAOImpl implements BorrowBooksDAO {
     }
 
     @Override
-    public boolean save(BorrowBooksDTO book) throws SQLException {
+    public boolean save(BorrowBooks book) throws SQLException {
         return SQLUtil.execute("INSERT INTO borrow_books(issue_id,member_id,book_id,due_date)" + "VALUES(?, ?, ?,?)", book.getIssue_id(),book.getMember_id(),book.getBook_id(),book.getDate());
     }
 
@@ -40,7 +41,7 @@ public class BorrowBooksDAOImpl implements BorrowBooksDAO {
     }
 
     @Override
-    public boolean update(BorrowBooksDTO book) throws SQLException {
+    public boolean update(BorrowBooks book) throws SQLException {
         return false;
     }
 

@@ -3,6 +3,7 @@ package lk.ijse.finalProject.dao.custom.impl;
 import lk.ijse.finalProject.dao.custom.InventoryDAO;
 import lk.ijse.finalProject.dto.InventoryDTO;
 import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
+import lk.ijse.finalProject.entity.Inventory;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,14 +11,14 @@ import java.util.ArrayList;
 
 public class InventoryDAOImpl implements InventoryDAO {
 
-    public ArrayList<InventoryDTO> getAll() throws SQLException {
+    public ArrayList<Inventory> getAll() throws SQLException {
         String sql = "SELECT * FROM inventory";
 
-        ArrayList<InventoryDTO> allInventories = new ArrayList<>();
+        ArrayList<Inventory> allInventories = new ArrayList<>();
 
         ResultSet resultSet = SQLUtil.execute(sql);
         while (resultSet.next()) {
-            allInventories.add(new InventoryDTO(
+            allInventories.add(new Inventory(
                     resultSet.getString(1),
                     resultSet.getString(2),
                     resultSet.getString(3),
@@ -28,8 +29,8 @@ public class InventoryDAOImpl implements InventoryDAO {
     }
 
     @Override
-    public boolean save(InventoryDTO inventoryDTO) throws SQLException {
-        return SQLUtil.execute("INSERT INTO inventory (Item_id,Item_name,category,quantity) VALUES (?,?,?,?)", inventoryDTO.getItem_id(),inventoryDTO.getItem_name(),inventoryDTO.getCategory(),inventoryDTO.getQuantity());
+    public boolean save(Inventory inventory) throws SQLException {
+        return SQLUtil.execute("INSERT INTO inventory (Item_id,Item_name,category,quantity) VALUES (?,?,?,?)", inventory.getItem_id(),inventory.getItem_name(),inventory.getCategory(),inventory.getQuantity());
     }
 
     @Override
@@ -38,8 +39,8 @@ public class InventoryDAOImpl implements InventoryDAO {
     }
 
     @Override
-    public boolean update(InventoryDTO inventoryDTO) throws SQLException {
-        return SQLUtil.execute("UPDATE inventory SET Item_name=?, category=?, quantity=? WHERE Item_id=?", inventoryDTO.getItem_name(),inventoryDTO.getCategory(),inventoryDTO.getQuantity(),inventoryDTO.getItem_id());
+    public boolean update(Inventory inventory) throws SQLException {
+        return SQLUtil.execute("UPDATE inventory SET Item_name=?, category=?, quantity=? WHERE Item_id=?", inventory.getItem_name(),inventory.getCategory(),inventory.getQuantity(),inventory.getItem_id());
     }
 
     @Override

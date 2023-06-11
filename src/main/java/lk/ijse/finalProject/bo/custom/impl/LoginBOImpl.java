@@ -5,6 +5,7 @@ import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.UserDAO;
 import lk.ijse.finalProject.dao.custom.impl.UserDAOImpl;
 import lk.ijse.finalProject.dto.UserDTO;
+import lk.ijse.finalProject.entity.User;
 
 import java.sql.SQLException;
 
@@ -13,7 +14,9 @@ public class LoginBOImpl implements LoginBO {
 
 
     public  boolean LoginAction(UserDTO logingCont) throws SQLException{
-        return userDAO.update(logingCont);
+        return userDAO.update(new User(logingCont.getUserName(),
+                                       logingCont.getPassword(),
+                                       logingCont.getEmail()));
     }
 
 }

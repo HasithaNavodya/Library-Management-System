@@ -1,10 +1,11 @@
 package lk.ijse.finalProject.bo.custom;
 
+import lk.ijse.finalProject.bo.SuperBO;
 import lk.ijse.finalProject.dto.UserDTO;
 
 import java.sql.SQLException;
 
-public interface LoginBO {
+public interface LoginBO  {
 
-    public  boolean LoginAction(UserDTO logingCont) throws SQLException;
+    public  boolean LoginAction(UserDTO userDTO) throws SQLException;
 }
