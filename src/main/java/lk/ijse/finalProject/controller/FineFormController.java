@@ -16,7 +16,6 @@ import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.FineBO;
 import lk.ijse.finalProject.model.FineDTO;
 import lk.ijse.finalProject.view.tdm.FineTM;
-import lk.ijse.finalProject.model.MemberModel;
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
 import java.io.IOException;
@@ -77,7 +76,7 @@ public class FineFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadCustIds();
+
         setCellValueFactory();
         getAll();
         generateNextFineId();
@@ -213,18 +212,6 @@ public class FineFormController implements Initializable {
     }
 
 
-
-    private void loadCustIds() {
-
-        try {
-            ObservableList<String>  obList = MemberModel.loadIds();
-            cmbCustIds.setItems(obList);
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-
-
-    }
     public  void ClearAll(){
         txtId.setText(null);
         txtAmount.setText(null);

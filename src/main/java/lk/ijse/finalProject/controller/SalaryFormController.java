@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.SalaryBO;
 import lk.ijse.finalProject.model.SalaryDTO;
-import lk.ijse.finalProject.model.SalaryModel;
+
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
 import lk.ijse.finalProject.view.tdm.SalaryTM;

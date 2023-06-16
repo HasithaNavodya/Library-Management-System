@@ -17,7 +17,6 @@ import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.InventoryBO;
 import lk.ijse.finalProject.model.InventoryDTO;
 import lk.ijse.finalProject.view.tdm.InventoryTM;
-import lk.ijse.finalProject.model.InventoryModel;
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
 

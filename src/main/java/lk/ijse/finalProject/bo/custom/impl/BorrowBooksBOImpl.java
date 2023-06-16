@@ -10,10 +10,10 @@ import lk.ijse.finalProject.dao.custom.impl.BorrowBooksDAOImpl;
 import lk.ijse.finalProject.dao.custom.impl.MemberDAOImpl;
 import lk.ijse.finalProject.dao.custom.impl.util.SQLUtil;
 import lk.ijse.finalProject.db.DBConnection;
-import lk.ijse.finalProject.dto.BorrowBooksDTO;
-import lk.ijse.finalProject.dto.DonatorDTO;
+import lk.ijse.finalProject.model.BorrowBooksDTO;
+import lk.ijse.finalProject.model.DonatorDTO;
 import lk.ijse.finalProject.entity.BorrowBooks;
-import lk.ijse.finalProject.model.BookModel;
+
 
 import java.sql.Connection;
 import java.sql.ResultSet;

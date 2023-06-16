@@ -16,7 +16,7 @@ import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.EmployeeBO;
 import lk.ijse.finalProject.model.EmployeeDTO;
 import lk.ijse.finalProject.view.tdm.EmployeeTM;
-import lk.ijse.finalProject.model.EmployeeModel;
+
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
 

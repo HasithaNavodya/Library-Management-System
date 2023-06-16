@@ -11,7 +11,7 @@ import lk.ijse.finalProject.db.DBConnection;
 import lk.ijse.finalProject.model.DonateBooksDTO;
 import lk.ijse.finalProject.entity.Book;
 import lk.ijse.finalProject.entity.DonateBooks;
-import lk.ijse.finalProject.model.BookModel;
+
 
 import java.sql.Connection;
 import java.sql.SQLException;

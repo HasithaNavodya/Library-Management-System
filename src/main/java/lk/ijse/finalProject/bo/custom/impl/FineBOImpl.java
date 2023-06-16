@@ -4,8 +4,8 @@ import lk.ijse.finalProject.bo.custom.FineBO;
 import lk.ijse.finalProject.dao.DAOFactory;
 import lk.ijse.finalProject.dao.custom.FineDAO;
 import lk.ijse.finalProject.dao.custom.impl.FineDAOImpl;
-import lk.ijse.finalProject.dto.EmployeeDTO;
-import lk.ijse.finalProject.dto.FineDTO;
+import lk.ijse.finalProject.model.EmployeeDTO;
+import lk.ijse.finalProject.model.FineDTO;
 import lk.ijse.finalProject.entity.Employee;
 import lk.ijse.finalProject.entity.Fine;
 

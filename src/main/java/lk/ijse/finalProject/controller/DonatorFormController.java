@@ -22,7 +22,7 @@ import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.DonatorBO;
 import lk.ijse.finalProject.model.DonatorDTO;
 import lk.ijse.finalProject.view.tdm.DonatorTM;
-import lk.ijse.finalProject.model.DonatorModel;
+
 import lk.ijse.finalProject.util.AlertController;
 import lk.ijse.finalProject.util.DataValidateController;
 

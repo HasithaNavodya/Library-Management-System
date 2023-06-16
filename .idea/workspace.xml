@@ -6,75 +6,19 @@
   <component name="ChangeListManager">
     <list default="true" id="5b06ff90-67fc-4058-b0bf-33443a1250ec" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/BoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/BoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/BookBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/BookBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/BorrowBooksBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/BorrowBooksBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/DonateBooksBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/DonateBooksBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/DonatorBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/DonatorBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/EmployeeBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/EmployeeBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/FineBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/FineBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/InventoryBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/InventoryBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/MemberBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/MemberBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/SalaryBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/SalaryBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/SignupBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/SignupBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/BookBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/BookBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/LoginBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/LoginBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/BorrowBooksBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/BorrowBooksBOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/DonateBooksBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/DonateBooksBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/DonatorBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/DonatorBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/EmployeeBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/EmployeeBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/InventoryBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/InventoryBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/LoginBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/LoginBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/MemberBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/MemberBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/SalaryBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/SalaryBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/SignupBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/SignupBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/BookFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/BookFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/BorrowBooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/BorrowBooksController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/DonateBooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/DonateBooksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/FineBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/bo/custom/impl/FineBOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/DonatorFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/DonatorFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/EmployeeFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/EmployeeFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/FineFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/FineFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/InventoryFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/InventoryFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/LoginFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/MemberFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/MemberFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/SalaryFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/SalaryFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/SignUpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/controller/SignUpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/BorrowBooksDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/BorrowBooksDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/DonateBooksDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/DonateBooksDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/DonatorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/DonatorDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/EmployeeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/EmployeeDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/FineDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/FineDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/InventoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/InventoryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/MemberDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/MemberDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/SalaryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/SalaryDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/BorrowBooksDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/BorrowBooksDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/DonateBooksDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/DonateBooksDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/DonatorDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/DonatorDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/EmployeeDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/EmployeeDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/FineDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/FineDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/InventoryDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/InventoryDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/MemberDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/MemberDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/SalaryDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/SalaryDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/UserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dao/custom/impl/UserDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dto/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/BookDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dto/BorrowBooksDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/BorrowBooksDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dto/DonateBooksDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/DonateBooksDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dto/DonatorDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/DonatorDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dto/EmployeeDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/EmployeeDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dto/FineDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/FineDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dto/InventoryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/InventoryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dto/MemberDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/MemberDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dto/SalaryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/SalaryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/BookModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/BorrowBooksModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/DonateBooksModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/DonatorModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/EmployeeModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/FineModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/InventoryModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/MemberModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/SalaryModel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/model/UserModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/util/AlertController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/finalProject/util/AlertController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,13 +80,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

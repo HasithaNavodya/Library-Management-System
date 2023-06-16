@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.SignupBO;
 import lk.ijse.finalProject.model.UserDTO;
-import lk.ijse.finalProject.model.UserModel;
+
 
 public class SignUpController {
 

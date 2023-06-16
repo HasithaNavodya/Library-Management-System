@@ -1,5 +1,6 @@
 package lk.ijse.finalProject.bo.custom;
 
+import javafx.collections.ObservableList;
 import lk.ijse.finalProject.bo.SuperBO;
 import lk.ijse.finalProject.model.FineDTO;
 
@@ -17,4 +18,6 @@ public interface FineBO extends SuperBO {
     public boolean updateFine(FineDTO fineDTO) throws SQLException;
 
     public String getNextFineId() throws SQLException;
+
+
 }

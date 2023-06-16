@@ -23,7 +23,7 @@ public class AlertController {
         alert.getDialogPane().setHeaderText(null); // Remove the header text from the alert dialog pane
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("img/wrongicon.png"));
+        stage.getIcons().add(new Image("assets/img/wrongicon.png"));
         ButtonType cancelButton = new ButtonType("Ok", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert.getButtonTypes().setAll(cancelButton);
 
@@ -43,7 +43,7 @@ public class AlertController {
         alert.getDialogPane().setHeaderText(null); // Remove the header text from the alert dialog pane
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("img/tick.png"));
+        stage.getIcons().add(new Image("assets/img/tick.png"));
         ButtonType cancelButton = new ButtonType("Ok", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert.getButtonTypes().setAll(cancelButton);
 
@@ -63,7 +63,7 @@ public class AlertController {
         alert.getDialogPane().setHeaderText(null); // Remove the header text from the alert dialog pane
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("img/tick.png"));
+        stage.getIcons().add(new Image("assets/img/tick.png"));
         ButtonType okButton = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
         ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert.getButtonTypes().setAll(okButton,cancelButton);
@@ -88,7 +88,7 @@ public class AlertController {
         alert.getDialogPane().setHeaderText(null); // Remove the header text from the alert dialog pane
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("img/tick.png"));
+        stage.getIcons().add(new Image("assets/img/tick.png"));
         ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         ButtonType okButton = new ButtonType("Continue", ButtonBar.ButtonData.OK_DONE);
         alert.getButtonTypes().setAll(okButton);
@@ -113,7 +113,7 @@ public class AlertController {
         alert.getDialogPane().setHeaderText(null); // Remove the header text from the alert dialog pane
 
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
-        stage.getIcons().add(new Image("img/wrongicon.png"));
+        stage.getIcons().add(new Image("assets/img/wrongicon.png"));
         ButtonType cancelButton = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
         alert.getButtonTypes().setAll(cancelButton);
 
