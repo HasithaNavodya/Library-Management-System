@@ -1,4 +1,4 @@
-package lk.ijse.finalProject.util;
+package lk.ijse.finalProject.controller;
 
 import com.google.i18n.phonenumbers.NumberParseException;
 import com.google.i18n.phonenumbers.PhoneNumberUtil;

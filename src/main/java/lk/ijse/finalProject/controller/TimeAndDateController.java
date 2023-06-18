@@ -1,4 +1,4 @@
-package lk.ijse.finalProject.util;
+package lk.ijse.finalProject.controller;
 
 import javafx.application.Platform;
 import javafx.scene.control.Label;

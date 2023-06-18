@@ -1,6 +1,5 @@
 package lk.ijse.finalProject.controller;
 
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -16,8 +15,7 @@ import lk.ijse.finalProject.bo.BoFactory;
 import lk.ijse.finalProject.bo.custom.FineBO;
 import lk.ijse.finalProject.model.FineDTO;
 import lk.ijse.finalProject.view.tdm.FineTM;
-import lk.ijse.finalProject.util.AlertController;
-import lk.ijse.finalProject.util.DataValidateController;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;

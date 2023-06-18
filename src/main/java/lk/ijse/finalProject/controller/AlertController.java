@@ -1,4 +1,4 @@
-package lk.ijse.finalProject.util;
+package lk.ijse.finalProject.controller;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonBar;
